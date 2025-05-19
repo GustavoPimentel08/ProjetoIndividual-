@@ -1,362 +1,204 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+/* font-family: 'Poppins'; */
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
+  background-color: var(--branco);
 }
 
-:root {
-  --tamanho-header: 80px;
-  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-footer: 65px;
-}
+/* -------------------------------------------- HEADER ---------------------------------------*/
 
-.container {
-  display: flex;
-  width: 80%;
-  margin: auto;
-}
+:root{--azul-escuro: #031E49}
+:root{--azul-claro: #4599FE}
+:root{--vermelho: #EE0405}
+:root{--branco: #FFFDFE}
 
-.header {
-  height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
-}
-
-.header .container {
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-
-.header a {
-  text-decoration: none;
-  color: #e3b062;
-}
-
-.agora {
-  font-weight: 800;
-}
-
-.navbar {
-  width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  color: #e3b062;
-}
-
-.titulo {
-  color: #32b9cd;
-  width: fit-content;
-  font-weight: 500;
-}
-
-.header h1 {
-  margin: 0;
-}
-
-/* BANNER */
-
-.banner {
-  height: var(--tamanho-banner);
-  color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
-}
-
-.banner .container {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.banner .container p {
-  width: 50%;
-  margin: 0;
-  padding: 0;
-  font-size: 36px;
-}
-
-.banner .container span {
-  font-weight: 800;
-}
-
-/* MISSÃO VISÃO VALORES */
-
-.social {
-  background-color: #e5e5e5;
-  display: flex;
-}
-
-.social .container {
-  justify-content: center;
-}
-
-.box img {
-  width: 170px;
-}
-
-.social .container .boxes {
-  display: flex;
-  justify-content: space-between;
+header {
+  background-color: var(--branco);
   width: 100%;
-  padding: 30px 0;
+  height: 120px;
+  position: fixed;
 }
 
-.social p {
-  text-align: center;
-}
-
-.box {
-  display: flex;
-  flex-direction: column;
+.container{
   align-items: center;
-}
-
-/* FOOTER */
-
-.footer {
-  background-color: #32b9cd;
-  height: 150px;
-  color: #fff;
   display: flex;
-  font-size: 15px;
-}
-
-.footer .container {
-  justify-content: center;
-  text-align: center;
-}
-
-.footer .container .version {
-  font-size: 12px;
-}
-
-/* LOGIN */
-
-.login {
-  height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
-}
-
-.login .container {
-  justify-content: center;
-  align-items: center;
+  flex-direction:row;
   height: 100%;
 }
 
-.card {
+.head1{
   width: 50%;
-  background-color: #e5e5e5;
-  border-radius: 10px;
-  display: flex;
   align-items: center;
+}
+
+.head2{
+  width: 50%;
+  flex-direction: row;
+  align-items: flex-end;
+  display: flex;
   justify-content: space-evenly;
-  color: palevioletred;
-  flex-direction: column;
-  height: fit-content;
-  padding: 20px 0;
 }
 
-.card h2 {
-  margin: 0;
-  font-size: 30px;
+.logo1{
+  margin-left: 25px;
+  width: 200px;
+
+}
+.logo2{
+  width: 45px;
+  margin-left: 10px;
+
 }
 
-.formulario {
-  display: flex;
-  height: 90%;
-  width: 80%;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
-.formulario span {
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.formulario input {
-  border: 2px solid #32b9cd;
-  text-align: center;
-  border-radius: 10px;
-  margin: 0;
-}
-
-.formulario select {
-  border: 2px solid #32b9cd;
-  background-color: white;
-  color: gray;
-  height: 36px;
-  text-align: center;
-  border-radius: 10px;
-  margin: 0;
-}
-
-.campo {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding: 5px 0;
-}
-
-.botao {
-  cursor: pointer;
-  font-family: "Barlow", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  color: #fff;
-  background-color: #ED145B;
-  width: 120px;
-  height: 30px;
-  align-self: center;
-  margin-top: 20px;
-}
-
-.loading-div {
-  width: 50px;
-  display: none;
-}
-
-.loading-div img {
+.select_hearder{
   height: 50px;
-  width: 50px;
 }
 
-#div_erros_login {
-  display: none
+li{
+    list-style-type: none;
 }
 
-/* FORMULARIO */
-
-.alerta_erro{
-  display: flex;
-  justify-content: flex-end;
+.decorlinks{
+  font-family: 'Poppins';
+  font-size: larger;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--azul-escuro);
 }
 
-.card_erro {
-  display: none;
-  background-color: #fff;
-  color: black;
-  width: 230px;
-  position: fixed;
-  border-radius: 4px;
-  border: #ED145B 3px solid;
-  padding: 10px;
-  margin-right: 10%;
+.imagem_login{
+  width: 25px;
+  height: auto;
 }
 
-.card_erro #mensagem_erro{
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.formulario .tipo_campo {
-  font-size: 20px;
-  font-weight: 600 !important;
-}
-
-.formulario {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  margin-bottom: 10px;
-  border: 2px solid #32b9cd;
-  padding: 10px;
-  text-align: center;
+.botao_header_login{
+  width: 115px;
+  height: 45px;
+  border-color: var(--azul-escuro);
+  background-color: var(--branco);
   border-radius: 10px;
+  
 }
 
-.btn {
-  font-family: "Barlow", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #ED145B;
-  width: 120px;
-  align-self: center;
-  margin-top: 5px;
+.div_botao_login{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
 }
 
-.loading-div {
-  width: 50px;
-  margin: auto;
-  display: none;
+.div_botao_login p{
+ font-family: 'Poppins';
+ font-weight: bold;
+ margin-left: 10px;
 }
 
-.loading-div img {
-  height: 50px;
-  width: 50px;
-}
-
-/* SIMULADOR */
-
-.simulador {
-  color: white;
-}
-
-.simulador .container {
-  flex-direction: column;
-  overflow: scroll; 
-  height: var(--tamanho-simulador);
-}
-
-/* ALERTA */
-
-#alerta {
+.bmw {
+  width: 100%;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  top: 110px;
 }
 
-.mensagem-alarme {
-  background-color: white;
-  border-radius: 5px;
-  width: 300px;
-  height: 80px;
-  margin: 10px;
-  padding: 10px 0;
+/* decoração dos LINKS */
+
+.decorlinks {
+    display: inline-block;
+    padding-bottom: 0.25rem;
+    position: relative;
+}
+
+.decorlinks::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--vermelho);
+    transition: width 0.25s ease-out;
+}
+
+.decorlinks:hover::before {
+    width: 100%;
+}
+
+/* fim dos links */
+
+.botao_header_login:hover {
+    background-color: var(--azul-escuro);
+    /* Green */
+    color: var(--branco);
+
+}
+
+
+/* ----------------------------------------------- comeco do site -------------------------------------------*/
+
+/* -------------------------Lado Esquerdo------------------------ */ 
+.banner{
+  background-color: var(--azul-escuro);
+  width: 100%;
+  height: 600px;
+  flex-direction: row;
   display: flex;
-  justify-content: space-evenly;
+  
+}
+
+.lado1{
+  width: 50%;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.mensagem-alarme h3 {
-  font-size: 14px;
-  margin: 0;
+.lado2{
+  width: 50%;
 }
 
-.mensagem-alarme .informacao {
-  width: 66%;
+.caixa{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px  ;
+  margin-left: 30px;
 }
 
-.alarme-sino {
-  width: 48px;
-  height: 48px;
-  animation-name: bell;
-  animation-duration: 4s;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
-  background-size: cover;
-  animation-iteration-count: infinite;
+.pp{
+  color: var(--branco);
+  font-family: 'Poppins';
+  font-size: 25px;
+  font-weight: bolder;
 }
 
-@keyframes bell {
-  0%   {transform: rotate(25deg)}
-  25%  {transform: rotate(-25deg)}
-  50%  {transform: rotate(25deg)}
-  75%  {transform: rotate(-25deg)}
-  100% {transform: rotate(25deg)}
+.pj{
+  color: var(--branco);
+  font-family: 'Poppins';
+  font-size: 25px;
+  font-weight: bolder;
+  margin-bottom: 15px;
+
 }
+
+.texto-pp{
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.imagem_caixaTexto{
+  width: 65%;
+  height: auto;
+  position: relative;
+}
+
+.texto{
+  position: absolute;
+}
+
+/* ---------------------- Lado Direito----------------------------*/
+
+.imagem-carreira{
+  width: 500px;
+}
+
