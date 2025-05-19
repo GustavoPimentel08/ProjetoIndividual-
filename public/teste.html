@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caixa de Idiomas com Animação por Letra</title>
+  <style>
+    body {
+      background-color: #0078ff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .idioma-box {
+      background-color: rgb(8, 53, 114);
+      color: white;
+      border-radius: 1.125rem;
+      padding: 1rem 2rem;
+      font-size: 3rem;
+      font-weight: 800;
+      text-align: center;
+      display: inline-block;
+      white-space: nowrap;
+      transition: all 0.4s ease;
+      overflow: hidden;
+      min-height: 80px;
+    }
+
+    .letra {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.4s forwards;
+    }
+
+    .letra.saindo {
+      animation: fadeOutDown 0.4s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOutDown {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="idioma-box" id="idiomaBox"></div>
+
+  <script>
+    const idiomas = ["Inglês", "Espanhol", "Francês", "Alemão", "Italiano", "Japonês", "Mandarim"];
+    let index = 0;
+    const box = document.getElementById("idiomaBox");
+
+    function mostrarPalavraComAnimacao(palavra) {
+      box.innerHTML = ""; // limpa a caixa
+      [...palavra].forEach((letra, i) => {
+        const span = document.createElement("span");
+        span.textContent = letra;
+        span.classList.add("letra");
+        span.style.animationDelay = `${i * 0.05}s`; // efeito cascata
+        box.appendChild(span);
+      });
+    }
+
+    function esconderPalavraAtual(callback) {
+      const letras = document.querySelectorAll(".letra");
+      letras.forEach((span, i) => {
+        span.classList.add("saindo");
+        span.style.animationDelay = `${i * 0.03}s`;
+      });
+
+      setTimeout(callback, letras.length * 30 + 400); // espera terminar animação
+    }
+
+    // Inicializa com a primeira palavra
+    mostrarPalavraComAnimacao(idiomas[index]);
+
+    setInterval(() => {
+      esconderPalavraAtual(() => {
+        index = (index + 1) % idiomas.length;
+        mostrarPalavraComAnimacao(idiomas[index]);
+      });
+    }, 3000);
+  </script>
+
+</body>
+</html>

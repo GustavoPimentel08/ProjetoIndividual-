@@ -7,31 +7,45 @@ body {
 
 /* -------------------------------------------- HEADER ---------------------------------------*/
 
-:root{--azul-escuro: #031E49}
-:root{--azul-claro: #4599FE}
-:root{--vermelho: #EE0405}
-:root{--branco: #FFFDFE}
+:root {
+  --azul-escuro: #031E49
+}
+
+:root {
+  --azul-claro: #4599FE
+}
+
+:root {
+  --vermelho: #EE0405
+}
+
+:root {
+  --branco: #FFFDFE
+}
+
+:root {
+  --fonte-principal: 'Poppins';
+}
 
 header {
   background-color: var(--branco);
   width: 100%;
   height: 120px;
-  position: fixed;
 }
 
-.container{
+.container {
   align-items: center;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   height: 100%;
 }
 
-.head1{
+.head1 {
   width: 50%;
   align-items: center;
 }
 
-.head2{
+.head2 {
   width: 50%;
   flex-direction: row;
   align-items: flex-end;
@@ -39,26 +53,31 @@ header {
   justify-content: space-evenly;
 }
 
-.logo1{
+.logo1 {
   margin-left: 25px;
   width: 200px;
 
 }
-.logo2{
+
+.logo2 {
   width: 45px;
   margin-left: 10px;
 
 }
 
-.select_hearder{
+select {
   height: 50px;
+  width: 70px;
+  border-color: var(--azul-escuro);
+  background-color: var(--branco);
+  font-family: 'Poppins';
 }
 
-li{
-    list-style-type: none;
+li {
+  list-style-type: none;
 }
 
-.decorlinks{
+.decorlinks {
   font-family: 'Poppins';
   font-size: larger;
   text-decoration: none;
@@ -66,31 +85,31 @@ li{
   color: var(--azul-escuro);
 }
 
-.imagem_login{
+.imagem_login {
   width: 25px;
   height: auto;
 }
 
-.botao_header_login{
+.botao_header_login {
   width: 115px;
   height: 45px;
   border-color: var(--azul-escuro);
   background-color: var(--branco);
   border-radius: 10px;
-  
+
 }
 
-.div_botao_login{
+.div_botao_login {
   display: flex;
   flex-direction: row;
   align-items: center;
 
 }
 
-.div_botao_login p{
- font-family: 'Poppins';
- font-weight: bold;
- margin-left: 10px;
+.div_botao_login p {
+  font-family: 'Poppins';
+  font-weight: bold;
+  margin-left: 10px;
 }
 
 .bmw {
@@ -102,50 +121,50 @@ li{
 /* decoração dos LINKS */
 
 .decorlinks {
-    display: inline-block;
-    padding-bottom: 0.25rem;
-    position: relative;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  position: relative;
 }
 
 .decorlinks::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--vermelho);
-    transition: width 0.25s ease-out;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--vermelho);
+  transition: width 0.25s ease-out;
 }
 
 .decorlinks:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 /* fim dos links */
 
 .botao_header_login:hover {
-    background-color: var(--azul-escuro);
-    /* Green */
-    color: var(--branco);
+  background-color: var(--azul-escuro);
+  /* Green */
+  color: var(--branco);
 
 }
 
 
 /* ----------------------------------------------- comeco do site -------------------------------------------*/
 
-/* -------------------------Lado Esquerdo------------------------ */ 
-.banner{
+/* -------------------------Lado Esquerdo------------------------ */
+.banner {
   background-color: var(--azul-escuro);
   width: 100%;
   height: 600px;
   flex-direction: row;
   display: flex;
-  
+
 }
 
-.lado1{
+.lado1 {
   width: 50%;
   display: flex;
   justify-content: center;
@@ -153,25 +172,25 @@ li{
   flex-direction: column;
 }
 
-.lado2{
-  width: 50%;
-}
 
-.caixa{
+.caixa {
   display: flex;
   flex-direction: column;
-  margin-top: 30px  ;
+  margin-top: 30px;
   margin-left: 30px;
 }
 
-.pp{
+.pp {
   color: var(--branco);
   font-family: 'Poppins';
   font-size: 25px;
   font-weight: bolder;
+  position: absolute;
+  left: 200px;
+
 }
 
-.pj{
+.pj {
   color: var(--branco);
   font-family: 'Poppins';
   font-size: 25px;
@@ -180,25 +199,93 @@ li{
 
 }
 
-.texto-pp{
-  display: flex;
+.texto-pp {
+  width: 100%;
   justify-content: flex-start;
-
-}
-
-.imagem_caixaTexto{
-  width: 65%;
-  height: auto;
+  display: flex;
   position: relative;
+  margin-bottom: 20px;
+
+
 }
 
-.texto{
+h1 {
   position: absolute;
+  left: 50px;
+  font-size: 115px;
+  font-family: var(--fonte-principal);
+  color: var(--branco);
 }
 
 /* ---------------------- Lado Direito----------------------------*/
 
-.imagem-carreira{
-  width: 500px;
+
+.lado2 {
+  width: 50%;
+
 }
 
+.caixa-imagem-carreira {
+  display: flex;
+  align-items: center;
+
+}
+
+.imagem-carreira {
+  width: 100%;
+}
+
+
+/* -------------------- teste ----------------------------------------------------*/
+
+.idioma-box {
+  background-color: #005397;
+  color: white;
+  border-radius: 1.125rem;
+  padding: 1rem 2rem;
+  font-size: 6rem;
+  font-weight: 800;
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  min-height: 80px;
+  font-family: 'Poppins';
+  margin: 20px 0;
+}
+
+.letra {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.4s forwards;
+}
+
+.letra.saindo {
+  animation: fadeOutDown 0.4s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
