@@ -5,12 +5,12 @@ body {
   background-color: var(--branco);
 }
 
-.alto{
+.alto {
   height: 80px;
   background-color: var(--azul-escuro);
 }
 
-.setas{
+.setas {
   position: absolute;
   height: 60%;
   right: 400px;
@@ -21,22 +21,10 @@ body {
 /* -------------------------------------------- HEADER ---------------------------------------*/
 
 :root {
-  --azul-escuro: #031E49
-}
-
-:root {
-  --azul-claro: #4599FE
-}
-
-:root {
-  --vermelho: #EE0405
-}
-
-:root {
-  --branco: #FFFDFE
-}
-
-:root {
+  --azul-escuro: #031E49;
+  --azul-claro: #4599FE;
+  --vermelho: #EE0405;
+  --branco: #FFFDFE;  
   --fonte-principal: 'Poppins';
 }
 
@@ -175,7 +163,7 @@ li {
   width: 100%;
   height: 600px;
   flex-direction: row;
-    display: flex;
+  display: flex;
 }
 
 .lado1 {
@@ -254,7 +242,7 @@ h1 {
   border-radius: 15px;
 }
 
-.diss1{
+.diss1 {
   font-family: var(--fonte-principal);
   color: var(--branco);
   font-size: larger;
@@ -264,7 +252,7 @@ h1 {
 
 }
 
-.diss2{
+.diss2 {
   font-family: var(--fonte-principal);
   color: var(--azul-escuro);
   font-size: larger;
@@ -333,7 +321,7 @@ h1 {
 
 /* -------------------------------------- site ------------------------------------------*/
 
-.section2{
+.section2 {
   display: flex;
   flex-direction: column;
   margin-top: 40px;
@@ -342,24 +330,15 @@ h1 {
 
 /*************/
 
-.titulo-section2{
-  font-family: var(--fonte-principal);
-  font-size: 35px;
-  font-weight: bolder;
-  margin-top: 40px;
-  margin-left: 40px;
-  margin-bottom: 40px;
 
-}
-
-.section3{
+.section3 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 
 }
 
-.box{
+.box {
   background-color: #cccccc;
   border-radius: 15px;
   height: 150px;
@@ -371,11 +350,11 @@ h1 {
 
 }
 
-.box:hover{
+.box:hover {
   transform: scale(1.05);
 }
 
-.box p{
+.box p {
   font-family: var(--fonte-principal);
   text-align: center;
   font-size: larger;
@@ -383,19 +362,20 @@ h1 {
 
 }
 
-.f{
+.f {
   font-weight: bolder;
 }
 
-/* ---------------000 -------------------------------------- */ 
+/* ---------------000 -------------------------------------- */
 
-.section4{
+.section4 {
   margin-top: 100px;
   display: flex;
   flex-direction: row;
 
 }
-.box1-section4{
+
+.box1-section4 {
   width: 50%;
   padding: 40px;
 
@@ -407,14 +387,14 @@ h1 {
 
 }
 
-.box2-section4{
+.box2-section4 {
   width: 50%;
   display: flex;
   justify-content: center;
 
 }
 
-.bb-section4{
+.bb-section4 {
   width: 70%;
   background-color: var(--azul-escuro);
   color: var(--branco);
@@ -426,10 +406,107 @@ h1 {
 
 }
 
+.titulo-section {
+  font-family: var(--fonte-principal);
+  font-size: 30px;
+  font-weight: bolder;
+  margin-top: 60px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
 
-.tt-sc4{
+
+.tt-sc4 {
+  margin-top: 25px;
+  text-align: center;
 
 }
-.tt-sc5{
 
+.tt-sc5 {
+  margin-top: 50px;
+
+}
+
+/*  ------------------------------ MAPA MUNDÍ ---------------------------------------------------*/
+
+.tt-section05{
+  font-family: var(--fonte-principal);
+  margin-left: 40px;
+  margin-bottom: 50px;
+
+}
+
+.foto-planeta {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+
+/* --------------------------------Sobre Mim ------------------------------------------------------*/
+
+.section-sobremim {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.locs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 50px;
+
+}
+
+.loc-1,
+.loc-2 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.loc90 {
+  width: 370px;
+  background-color: rgb(209, 208, 208);
+  border-radius: 20px;
+  border: 10px;
+  padding: 2.5%;
+  position: relative;
+
+}
+  
+.loc91 {
+
+  border-radius: 20px;
+
+}
+
+.img-1 {
+  width: 90%;
+  border-radius: 20px;
+
+
+}
+
+.texto_fotos{
+  font-family: var(--fonte-principal);
+  font-size: 21px;
+  text-align: center;
+
+
+}
+
+/* ------------------------------ parte 2 ---------------------------------------*/
+
+
+.img-quadro-1{
+ 
+  width: 80%;
+  
+}
+
+.img-quadro-2{
+ width: 50%;
 }
