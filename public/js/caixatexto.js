@@ -31,4 +31,4 @@ const idiomas = ["Inglês", "Espanhol", "Francês"];
         index = (index + 1) % idiomas.length;
         mostrarPalavraComAnimacao(idiomas[index]);
       });
-    }, 4000);
+    }, 2500);
