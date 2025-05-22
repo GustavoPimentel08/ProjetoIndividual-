@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 /* font-family: 'Poppins'; */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--branco);
 }
@@ -24,14 +28,14 @@ body {
   --azul-escuro: #031E49;
   --azul-claro: #4599FE;
   --vermelho: #EE0405;
-  --branco: #FFFDFE;  
+  --branco: #FFFDFE;
   --fonte-principal: 'Poppins';
 }
 
 header {
   background-color: var(--branco);
   width: 100%;
-  height: 120px;
+  height: 88px;
   position: fixed;
   z-index: 1000;
 }
@@ -118,7 +122,7 @@ li {
 .bmw {
   width: 100%;
   position: absolute;
-  top: 110px;
+  top: 75px;
 }
 
 /* decoração dos LINKS */
@@ -347,6 +351,7 @@ h1 {
   align-items: center;
   padding: 1%;
   transition: transform 0.2s ease-in-out;
+  font-family: var(--fonte-principal);
 
 }
 
@@ -429,7 +434,7 @@ h1 {
 
 /*  ------------------------------ MAPA MUNDÍ ---------------------------------------------------*/
 
-.tt-section05{
+.tt-section05 {
   font-family: var(--fonte-principal);
   margin-left: 40px;
   margin-bottom: 50px;
@@ -476,7 +481,7 @@ h1 {
   position: relative;
 
 }
-  
+
 .loc91 {
 
   border-radius: 20px;
@@ -490,7 +495,7 @@ h1 {
 
 }
 
-.texto_fotos{
+.texto_fotos {
   font-family: var(--fonte-principal);
   font-size: 21px;
   text-align: center;
@@ -500,13 +505,8 @@ h1 {
 
 /* ------------------------------ parte 2 ---------------------------------------*/
 
+.img-section7 {
+  height: 500px;
+  border-radius: 15px;
 
-.img-quadro-1{
- 
-  width: 80%;
-  
-}
-
-.img-quadro-2{
- width: 50%;
 }

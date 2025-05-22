@@ -34,22 +34,12 @@ const idiomas = ["Inglês", "Espanhol", "Francês"];
     }, 2500);
 
     /* ------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
     
-
-     var textos = {
+    
+    var textos = {
         titulo_topicos_relevantes: "Tópicos Relevantes",
         section3: [
-          'A população do Brasil atual é de aproximadamente 212,6 milhões de habitantes',
+            'A população do Brasil atual é de aproximadamente 212,6 milhões de habitantes',
             'Apenas 5% do Brasil possui algum conhecimento sobre outro idioma.',
             'E apenas 1% domina as 4 habilidades de qualquer idioma'
         ]
@@ -62,9 +52,6 @@ const idiomas = ["Inglês", "Espanhol", "Francês"];
             'And only 1% master all 4 skills of any language'
         ]
     }
-
-
-
 
     var idioma = 'ptbr';
 
