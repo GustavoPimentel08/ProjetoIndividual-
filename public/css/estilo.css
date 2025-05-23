@@ -377,6 +377,7 @@ h1 {
 
 .f {
   font-weight: bolder;
+  font-family: var(--fonte-principal);
 }
 
 /* ---------------000 -------------------------------------- */
@@ -391,6 +392,7 @@ h1 {
 .box1-section4 {
   width: 50%;
   padding: 40px;
+  
 
 }
 
@@ -749,4 +751,28 @@ footer{
 .foto-footer{
   margin-top: 15px;
   margin-left: 15px;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+
+
+/* --------------------------------------------------------------------------*/
+/* ---------------------------- PERSONALIZAÇÃO DE OUTROS IDIOMAS ----------------------------------------------*/
+/* --------------------------------------------------------------------------*/
+
+
+.section3{
+  font-weight: bold;
+  text-align: center;
+}
+
+.textos_idiomas{
+  font-family: var(--fonte-principal);
+  font-weight: bold;  
+  padding: 2%;
+
 }
