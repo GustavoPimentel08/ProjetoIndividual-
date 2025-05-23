@@ -29,6 +29,7 @@ body {
   --azul-claro: #4599FE;
   --vermelho: #EE0405;
   --branco: #FFFDFE;
+  --preto: #000000;
   --fonte-principal: 'Poppins';
 }
 
@@ -103,7 +104,14 @@ li {
   border-color: var(--azul-escuro);
   background-color: var(--branco);
   border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 
+}
+
+.botao_header_login:hover{
+    transform: scale(1.1); ;
+    color: #031E49;
 }
 
 .div_botao_login {
@@ -509,4 +517,236 @@ h1 {
   height: 500px;
   border-radius: 15px;
 
+}
+
+
+/* --------------------------- parte 3 carousel ---------------------------------------*/
+
+.carousel-container {
+  width: 100%;
+  padding: 60px 0;
+}
+
+.carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: scroll;
+  padding: 0 100px;
+  scroll-behavior: smooth;
+  cursor: grab;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel img {
+  width: 370px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+  flex-shrink: 0;
+  pointer-events: none;
+  user-select: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.3;
+  transform: scale(0.7);
+}
+
+.carousel img.focus {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  background-color: #bbb;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #333;
+}
+
+
+/* === */
+
+.section09 {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.texto-section09 {
+  width: 80%;
+  background-color: #cccccc;
+  border-radius: 15px;
+  font-family: var(--fonte-principal);
+  text-align: justify;
+  padding: 2%;
+  line-height: 28px;
+}
+
+/* ------------------------------------ */
+
+.section10 {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ---------------------------------- parte 4 ----------------------------*/
+
+.section11 {
+  margin-top: 45px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.texto-section11 {
+  width: 80%;
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+  border-radius: 15px;
+  font-family: var(--fonte-principal);
+  text-align: justify;
+  padding: 2%;
+  line-height: 28px;
+
+}
+
+.ss-texto-sc11 {
+  width: 80%;
+  font-size: larger;
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+  border-radius: 15px;
+  font-family: var(--fonte-principal);
+  text-align: justify;
+}
+
+.section12 {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.texto-section12 {
+  width: 80%;
+  background-color: #000000;
+  color: var(--branco);
+  border-radius: 15px;
+  font-family: var(--fonte-principal);
+  text-align: justify;
+  padding: 2%;
+  line-height: 28px;
+
+}
+
+.ss-texto-sc12 {
+  width: 80%;
+  color: var(--branco);
+  border-radius: 15px;
+  font-weight: bolder;
+  font-family: var(--fonte-principal);
+  text-align: justify;
+}
+
+/* ========= */
+
+.section13 {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.ordem-texto {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.ordem-botao {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.texto-section13 {
+  width: 500px;
+  color: var(--preto);
+  font-family: var(--fonte-principal);
+  text-align: center;
+
+}
+
+.butao_cadastrar-sc13 {
+  background-color: #005397;
+  color: #FFFDFE;
+  width: 210px;
+  height: 60px;
+  font-family: var(--fonte-principal);
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.butao_cadastrar-sc13:hover{
+    transform: scale(1.1); ;
+    color: #031E49;
+}
+
+/* ------------------------------- footer =-------------------------------------------------------*/
+
+footer{
+  background-color: var(--azul-escuro);
+  width: 100%;
+  height: 100px;
+  position: relative;
+}
+
+.mini-footer{
+  background-color: #000000;
+  width: 100%;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 10px;
+
+}
+
+.texto-footer{
+  color: var(--branco);
+  font-family: var(--fonte-principal);
+  text-align: justify;
+  
+}
+
+.foto-footer{
+  margin-top: 15px;
+  margin-left: 15px;
 }
