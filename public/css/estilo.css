@@ -60,7 +60,6 @@ header {
   display: flex;
   justify-content: space-evenly;
 }
-
 .logo1 {
   margin-left: 25px;
   width: 200px;
@@ -414,6 +413,7 @@ h1 {
   background-color: var(--azul-escuro);
   color: var(--branco);
   font-family: var(--fonte-principal);
+  text-align: center;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -434,6 +434,7 @@ h1 {
 .tt-sc4 {
   margin-top: 25px;
   text-align: center;
+  width: 100%;
 
 }
 
@@ -775,4 +776,8 @@ a{
   font-weight: bold;  
   padding: 2%;
 
+}
+
+.idiomas_en{
+  font-weight: lighter;
 }

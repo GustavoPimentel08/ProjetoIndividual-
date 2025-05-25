@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
   <title>Home - The G Method.</title>
 
-  <script src="./js/sessao.js"></script>
+  <script defer src="./js/sessao.js"></script> <!-- defer garante que carrega após o HTML -->
 
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/estilo.css">
@@ -19,37 +19,35 @@
   <header>
     <div class="container">
       <div class="head1">
-        <li>
-          <img class="logo1" src="./fotos/logo so nome preto.png" alt="">
-          <img class="logo2" src="./fotos/apenas bandeiras.png" alt="">
-        </li>
+        <ul>
+          <li>
+            <img class="logo1" src="./fotos/logo so nome preto.png" alt="Logo G Method">
+            <img class="logo2" src="./fotos/apenas bandeiras.png" alt="Bandeiras">
+          </li>
+        </ul>
       </div>
       <div class="head2">
-        <li>
-          <a class="decorlinks" href="">Sobre Mim</a>
-        </li>
-        <li>
-          <a class="decorlinks" href="">Mapa - Mundi</a>
-        </li>
-        <select>
-          <option value="">Ingles</option>
-          <option value="">Ingles</option>
-          <option value="">Ingles</option>
-          <option value="">Ingles</option>
+
+        <li><a class="decorlinks" href="">Sobre Mim</a></li>
+        <li><a class="decorlinks" href="">Mapa - Mundi</a></li>
+
+
+        <select id="select_idioma" >
+          <option value="ptbr">Português</option>
+          <option value="en">Inglês</option>
         </select>
 
         <a href="./login.html">
           <button class="botao_header_login">
             <div class="div_botao_login">
-              <img class="imagem_login" src="./fotos/contorno-do-botao-de-seta-quadrado-de-login.png" alt="">
-              <p>Login</p>
+              <img class="imagem_login" src="./fotos/contorno-do-botao-de-seta-quadrado-de-login.png" alt="Ícone Login">
+              <p id="menu_item_2">Login</p>
             </div>
           </button>
         </a>
-
       </div>
     </div>
-    <img class="bmw" src="./fotos/bmw.png" alt="">
+    <img class="bmw" src="./fotos/bmw.png" alt="Imagem BMW">
   </header>
 
   <!-- ---------------------------------- Começo do Site ---------------------------------------- -->
@@ -94,9 +92,10 @@
     </div>
 
     <div class="section4">
-      <div  class="box1-section4">
+      <div class="box1-section4">
         <div id="textos_idiomas" class="textos_idiomas">
-          <p class="idiomas_en">As pessoas consideradas fluentes são as que dominam as 4 habilidades dos idiomas </p><br><br>
+          <p class="idiomas_en">As pessoas consideradas fluentes são as que dominam as 5 habilidades dos idiomas </p>
+          <br><br>
           <p class="f">• Fala - Speaking</p> <br>
           <p class="f">• Audição - listening</p> <br>
           <p class="f">• Leitura - Reading</p> <br>
@@ -291,7 +290,9 @@
     </div>
   </footer>
 
+  <script src="./js/traducao_pagina.js"></script>
   <script src="./js/caixatexto.js"></script>
+
 </body>
 
 </html>
