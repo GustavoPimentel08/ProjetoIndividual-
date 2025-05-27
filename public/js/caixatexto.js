@@ -135,3 +135,6 @@ setInterval(() => {
       dot.classList.toggle('active', i === activeIndex);
     });
   }
+
+
+  

@@ -7,7 +7,17 @@
     position: absolute;
     z-index: -1;
     width: 100%;
+    height: 50vw;
+    top: 0;
+
+}
+
+.imagemFundo2 {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
     height: 60vw;
+    top: 0;
 
 }
 
@@ -27,7 +37,7 @@
 }
 
 .card-cadastro {
-    background-color: #ffffff;
+    background-color: #ffffff69;
     border: #031E49 solid 2px;
     border-radius: 25px;
     padding: 3%;
@@ -111,9 +121,10 @@ span {
 }
 
 .botaoVoltar{
-
-    background-color: #005397;
-    color: #FFFDFE;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: #ffffff;
+    color:  var(--azul-escuro);
     width: 120px;
     height: 40px;
     font-family: var(--fonte-principal);
@@ -124,6 +135,7 @@ span {
     border: none;
     transition: transform 0.3s ease;
     cursor: pointer;
+    border-radius: 5px;
 
 }
 
@@ -150,6 +162,7 @@ footer {
     justify-content: center;
     align-items: center;
     position: absolute;
+    bottom: 0;
     font-size: 10px;
 
 }
@@ -159,11 +172,13 @@ footer {
     font-family: var(--fonte-principal);
     text-align: justify;
 
+
 }
 
 .foto-footer {
     margin-top: 15px;
     margin-left: 15px;
+    width: 75px;
 }
 
 a {

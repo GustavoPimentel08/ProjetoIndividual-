@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Cadastro - TheGMethod.</title>
   <script src="./js/sessao.js"></script>
 
   <link rel="stylesheet" href="./css/reset.css">
@@ -15,7 +16,7 @@
 
 <body onload="listar()">
 
-  <img class="imagemFundo" src="./foto-gustavo/citysofar.jpeg" alt="">
+  <img class="imagemFundo2" src="./foto-gustavo/citysofar.jpeg" alt="">
   <!--header inicio-->
   <div class="header">
     <a href="./index.html">
@@ -39,17 +40,9 @@
           <img class="bandeiras" src="./fotos/brasil.png" alt="">
           <img class="bandeiras" src="./fotos/usa.png" alt="">
         </div>
-        <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
         <div class="inputs-cadastro">
           <div class="campo">
-            <span>Código de ativação:</span><br>
-            <input class="block" id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          </div>
-          <div class="campo">
-            <div class="divNome"><span>Nome:</span><br></div>
+            <span>Nome:</span><br>
             <input class="block" id="nome_input" type="text" placeholder="Seu nome" />
           </div>
           <div class="campo">
@@ -65,7 +58,7 @@
             <input class="block" id="confirmacao_senha_input" type="password" placeholder="******" />
           </div>
         </div>
-        
+
         <div id="div_aguardar" class="loading-div">
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
