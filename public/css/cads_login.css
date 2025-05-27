@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+/* font-family: 'Poppins'; */
+
+
+
+.imagemFundo {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 60vw;
+
+}
+
+:root {
+    --azul-escuro: #031E49;
+    --azul-claro: #4599FE;
+    --vermelho: #EE0405;
+    --branco: #FFFDFE;
+    --preto: #000000;
+    --fonte-principal: 'Poppins';
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-cadastro {
+    background-color: #ffffff;
+    border: #031E49 solid 2px;
+    border-radius: 25px;
+    padding: 3%;
+    width: 30%;
+    height: auto;
+}
+
+.formulario {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+/* ---------------------- cadastro -------------------*/
+
+.bandeiras {
+    width: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.inputs-cadastro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    font-family: var(--fonte-principal);
+    color: #031E49;
+    font-size: 30px;
+}
+
+.block {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 96%;
+    height: 30px;
+    border: #031E49 solid 2px;
+    border-radius: 5px;
+}
+
+span {
+    font-family: var(--fonte-principal);
+    color: #031E49;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.divNome {
+    background-color: var(--branco);
+}
+
+.loading-div {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.botao {
+    background-color: #005397;
+    color: #FFFDFE;
+    width: 120px;
+    height: 40px;
+    font-family: var(--fonte-principal);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.botao:hover{
+    transform: scale(1.1); ;
+    color: #031E49;
+}
+
+.botaoVoltar{
+
+    background-color: #005397;
+    color: #FFFDFE;
+    width: 120px;
+    height: 40px;
+    font-family: var(--fonte-principal);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+}
+
+.botaoVoltar:hover{
+  transform: scale(1.1); ;
+    color: #031E49;
+}
+
+/* ------------------------------------------- footer --------------------------------------*/
+
+footer {
+    background-color: var(--azul-escuro);
+    width: 100%;
+    height: 100px;
+    position: relative;
+    margin-top: 100px;
+}
+
+.mini-footer {
+    background-color: #000000;
+    width: 100%;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 10px;
+
+}
+
+.texto-footer {
+    color: var(--branco);
+    font-family: var(--fonte-principal);
+    text-align: justify;
+
+}
+
+.foto-footer {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+a {
+    text-decoration: none;
+}
