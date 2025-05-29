@@ -72,3 +72,12 @@ button {
 .text-new-gray {
     color: var(--new-gray);
 }
+
+/* ------------------------------------ site por mim ---------------------------------------------*/
+
+.central{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 /* font-family: 'Poppins'; */
+/* :target {
+     scroll-margin-top: 10px; /* Ajuste este valor para a sua necessidade
+ } */
 
-html {
+ 
+
+html{
   scroll-behavior: smooth;
 }
+
 
 body {
   background-color: var(--branco);

@@ -2,15 +2,13 @@
 /* font-family: 'Poppins'; */
 
 
-
-.imagemFundo {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 50vw;
-    top: 0;
+body {
+    background-image: url(../foto-gustavo/citysofar.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
+
 
 .imagemFundo2 {
     position: absolute;
@@ -37,7 +35,7 @@
 }
 
 .card-cadastro {
-    background-color: #ffffff69;
+    background-color: var(--branco);
     border: #031E49 solid 2px;
     border-radius: 25px;
     padding: 3%;
@@ -55,7 +53,7 @@
 /* ---------------------- cadastro -------------------*/
 
 .bandeiras {
-    width: 60px;
+    width: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -73,30 +71,98 @@ h2 {
     font-size: 30px;
 }
 
-.block {
-    margin-top: 5px;
-    margin-bottom: 15px;
-    width: 96%;
-    height: 30px;
-    border: #031E49 solid 2px;
-    border-radius: 5px;
+h3{
+    font-family: var(--fonte-principal);
+    color: #031E49;
+    font-size: 25px;
+}
+
+
+/* -------------------------campos inputs -----------------*/
+
+.input-field,
+.input-field2,
+.input-field3,
+.input-field4,
+.input-field-login1,
+.input-field-login2 {
+    position: relative;
+    margin-top: 25px;
+}
+
+.input-field .input1,
+.input-field2 .input2,
+.input-field3 .input3,
+.input-field4 .input4,
+.input-field-login1 .input_login1,
+.input-field-login2 .input_login2 {
+    width: 390px;
+    height: 45px;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 8 15px;
+    border: 2px solid var(--azul-escuro);
+    outline: none;
+    color: #031E49;
+
+}
+
+
+.input-field span,
+.input-field2 span,
+.input-field3 span,
+.input-field4 span,
+.input-field-login1 span,
+.input-field-login2 span {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #031E49;
+    font-size: 19px;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.input1:focus,
+.input2:focus,
+.input3:focus,
+.input4:focus,
+.input_login1:focus,
+.input_login2:focus {
+    border: 2px solid var(--azul-claro);
+}
+
+.input1:focus~span,
+.input2:focus~span,
+.input3:focus~span,
+.input4:focus~span,
+.input_login1:focus~span,
+.input_login2:focus~span,
+.input1:valid~span,
+.input2:valid~span,
+.input3:valid~span,
+.input4:valid~span,
+.input_login1:valid~span,
+.input_login2:valid~span {
+    top: 0;
+    font-size: 16px;
+    padding: 0 10px;
+    background-color: #fffdfe;
+    color: #4599FE;
 }
 
 span {
     font-family: var(--fonte-principal);
-    color: #031E49;
-    font-size: 15px;
-    margin-left: 10px;
 }
 
-.divNome {
-    background-color: var(--branco);
-}
+/* -------------------------------------------------------------*/
 
 .loading-div {
     display: flex;
     justify-content: center;
-    
+    align-items: center;
+
 }
 
 .botao {
@@ -113,18 +179,20 @@ span {
     transition: transform 0.3s ease;
     cursor: pointer;
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 
-.botao:hover{
-    transform: scale(1.1); ;
+.botao:hover {
+    transform: scale(1.1);
+    ;
     color: #031E49;
 }
 
-.botaoVoltar{
+.botaoVoltar {
     margin-top: 20px;
     margin-left: 20px;
     background-color: #ffffff;
-    color:  var(--azul-escuro);
+    color: var(--azul-escuro);
     width: 120px;
     height: 40px;
     font-family: var(--fonte-principal);
@@ -139,8 +207,9 @@ span {
 
 }
 
-.botaoVoltar:hover{
-  transform: scale(1.1); ;
+.botaoVoltar:hover {
+    transform: scale(1.1);
+    ;
     color: #031E49;
 }
 

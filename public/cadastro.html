@@ -16,7 +16,6 @@
 
 <body onload="listar()">
 
-  <img class="imagemFundo2" src="./foto-gustavo/citysofar.jpeg" alt="">
   <!--header inicio-->
   <div class="header">
     <a href="./index.html">
@@ -40,44 +39,49 @@
           <img class="bandeiras" src="./fotos/brasil.png" alt="">
           <img class="bandeiras" src="./fotos/usa.png" alt="">
         </div>
-        <div class="inputs-cadastro">
-          <div class="campo">
-            <span>Nome:</span><br>
-            <input class="block" id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span><br>
-            <input class="block" id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span><br>
-            <input class="block" id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span><br>
-            <input class="block" id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-        </div>
 
-        <div id="div_aguardar" class="loading-div">
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+        <div class="inputs-cadastro">
+
+          <div class="input-field">
+            <input class="input1" id="nome_input" type="text" required spellcheck="false" />
+            <span>Nome</span>
+          </div>
+
+          <div class="input-field2">
+            <input class="input2" id="email_input" type="text" required spellcheck="false" />
+            <span>E-mail</span>
+          </div>
+
+          <div class="input-field3">
+            <input class="input3" id="senha_input" type="password" required spellcheck="false"/>
+            <span>Senha</span>
+          </div>
+
+          <div class="input-field4">
+            <input class="input4" id="confirmacao_senha_input" type="password" required spellcheck="false"/>
+            <span>Confirmação da Senha</span>
+          </div>
+  
+
+          <div id="div_aguardar" class="loading-div">
+            <button class="botao" onclick="cadastrar()">Cadastrar</button>
+          </div>
+          <div id="div_erros_login"></div>
         </div>
-        <div id="div_erros_login"></div>
       </div>
     </div>
-  </div>
 
-  <!--footer inicio-->
-  <footer>
-    <div class="footer-01">
-      <img class="foto-footer" src="./fotos/the g method logo (1).png" alt="">
-    </div>
-    <div class="mini-footer">
-      <p class="texto-footer"> Gustavo Pimentel Costa <br> © 2025 The G Method.</p>
-    </div>
-  </footer>
+    <!--footer inicio-->
+    <footer>
+      <div class="footer-01">
+        <img class="foto-footer" src="./fotos/the g method logo (1).png" alt="">
+      </div>
+      <div class="mini-footer">
+        <p class="texto-footer"> Gustavo Pimentel Costa <br> © 2025 The G Method.</p>
+      </div>
+    </footer>
 
-  <!--footer fim-->
+    <!--footer fim-->
 </body>
 
 </html>

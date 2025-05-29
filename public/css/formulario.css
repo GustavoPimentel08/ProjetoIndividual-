@@ -1,0 +1,223 @@
+/* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
+/* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+/* font-family: 'Poppins'; */
+
+
+:root {
+    --azul-escuro: #031E49;
+    --azul-claro: #4599FE;
+    --vermelho: #EE0405;
+    --branco: #FFFDFE;
+    --preto: #000000;
+    --fonte-principal: 'Poppins';
+}
+
+
+
+body{
+    background-color: #1f1f1f;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.flex-colunar {
+    display: flex;
+    flex-direction: column;
+}
+
+.width-fit-content {
+    width: fit-content;
+}
+
+.border-primary {
+    border: 3px solid var(--primary-brand-color);
+}
+
+.border-secondary {
+    border: 3px solid var(--secondary-brand-color);
+}
+
+.padding-8 {
+    padding: 8px;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-success-with-bg {
+    color: var(--success-dark);
+    background-color: var(--success-light);
+}
+
+.text-warning-with-bg {
+    color: var(--warning-dark);
+    background-color: var(--warning-light);
+}
+
+.text-danger-with-bg {
+    color: var(--danger-dark);
+    background-color: var(--danger-light);
+}
+
+.text-new-gray {
+    color: var(--new-gray);
+}
+
+/* ------------------------------------ site por mim ---------------------------------------------*/
+
+.info_formulario{
+    background-color: #FFFDFE;
+    width: 60%;
+    max-height: 100vh;
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.central{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* header */
+
+header {
+    background-color: var(--branco);
+    width: 100%;
+    height: 88px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+}
+
+.bmw {
+    width: 100%;
+    position: absolute;
+    top: 75px;
+}
+
+.foto-header1 {
+    height: 20px;
+}
+
+.foto-header {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.botao_sair {
+    margin-left: 15px;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    width: 110px;
+    height: 40px;
+    font-family: var(--fonte-principal);
+    font-size: 18px;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    border: none;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+.botao_sair:hover {
+    transform: scale(1.1);
+    color: #031E49;
+    background-color: var(--branco);
+    border: 2px solid var(--azul-escuro);
+
+}
+
+h1 {
+    font-family: var(--fonte-principal);
+    color: var(--azul-escuro);
+    font-size: 22px;
+    font-weight: lighter;
+}
+
+h2 {
+    font-family: var(--fonte-principal);
+    color: var(--azul-escuro);
+    font-size: 22px;
+    font-weight: lighter;
+}
+
+.p1{
+    font-family: var(--fonte-principal);
+
+}
+
+.p2{
+    font-family: var(--fonte-principal);
+    font-weight: bold;
+
+}
+
+
+.btn{
+    border: 2px solid var(--azul-claro);
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "montserrat";
+    cursor: pointer;
+    margin: 10px; 
+    transition: 0.8s;
+    font-family: var(--fonte-principal);
+}
+
+.btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--azul-claro);
+    z-index: -1;
+    transition: 0.8s;
+}
+
+.btn1{
+        color: var(--azul-claro);
+
+}
+
+.btn1:hover{
+        color: var(--branco);
+        background-color: var(--azul-claro);
+
+}
+
+.btn1::before{
+    top: 0;
+    border-radius: 0 0 50% 50%;
+}
+
+.btn1:hover::before{
+    height: 180%;
+}

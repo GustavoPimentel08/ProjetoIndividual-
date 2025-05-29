@@ -63,9 +63,13 @@ var strings = {
 var idioma = 'ptbr';
 
 function teste() {
-    section3.innerHTML = "";
-    textos_idiomas.innerHTML = "";
-    bbSection.innerHTML = "";
+    document.getElementById("section3") = "";
+    document.getElementById("textos_idiomas") = "";
+    document.getElementById("bbSection") = "";
+
+    // document.getElementById('section3').style.display = "flex";
+    // document.getElementById('textos_idiomas').style.display = "flex";
+    // document.getElementById('bbSection').style.display = "flex";
 
 
     if (idioma == 'ptbr') {
