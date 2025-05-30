@@ -55,7 +55,8 @@
 
 
                 <div id="div_aguardar" class="loading-div">
-                    <button class="botao" onclick="entrar()">Entrar</button>
+                    <button id="botao_entrar" class="botao" onclick="entrar()">Entrar</button>
+                    <img id="gif_loading" src="./gif/gir gitgur.gif" alt="" style="display: none; width: 150px;">
                 </div>
 
                 <div id="div_erros_login"></div>
@@ -79,7 +80,20 @@
 </html>
 
 <script>
+    function aguardar() {
+        document.getElementById('botao_entrar').style.display = "none";
+        document.getElementById('gif_loading').style.display = "inline-block";
+    }
 
+    function finalizarAguardar(mensagem) {
+        document.getElementById('botao_entrar').style.display = "inline-block";
+        document.getElementById('gif_loading').style.display = "none";
+
+        if (mensagem) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = mensagem;
+        }
+    }
 
     function entrar() {
         aguardar();
@@ -88,13 +102,12 @@
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Por favor, preencha todos os campos.";
             finalizarAguardar();
             return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
+        } else {
+            setInterval(sumirMensagem, 5000);
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -110,7 +123,7 @@
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+            console.log("ESTOU NO THEN DO entrar()!");
 
             if (resposta.ok) {
                 console.log(resposta);
@@ -121,16 +134,14 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios);
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
-
+                        window.location = "./areademembros.html";
+                    }, 2000); // espera 2 segundos
                 });
 
             } else {
-
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
@@ -141,13 +152,13 @@
 
         }).catch(function (erro) {
             console.log(erro);
-        })
+            finalizarAguardar("Erro na comunicação com o servidor.");
+        });
 
         return false;
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
+        cardErro.style.display = "none";
     }
-
 </script>

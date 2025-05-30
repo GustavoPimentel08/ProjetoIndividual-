@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 /* font-family: 'Poppins'; */
 /* :target {
-     scroll-margin-top: 10px; /* Ajuste este valor para a sua necessidade
+     scroll-margin-top: 10px; /* Ajuste este valor para a sua necessidade na parte de scroll suave 
  } */
 
- 
+ :root {
+  --azul-escuro: #031E49;
+  --azul-claro: #4599FE;
+  --vermelho: #EE0405;
+  --branco: #FFFDFE;
+  --preto: #000000;
+  --fonte-principal: 'Poppins';
+}
+
 
 html{
   scroll-behavior: smooth;

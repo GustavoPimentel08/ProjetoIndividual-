@@ -1,11 +1,25 @@
 /* pagina mural */
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+
+:root {
+  --azul-escuro: #031E49;
+  --azul-claro: #4599FE;
+  --vermelho: #EE0405;
+  --branco: #FFFDFE;
+  --preto: #000000;
+  --escurooo: #001331;
+  --fonte-principal: 'Poppins';
+}
+
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #001331;
 }
 
 .label-captura {
@@ -95,7 +109,7 @@ body {
 }
 
 .div-results .feed-container {
-  background-color: #212124;
+  background-color: #000000;
   border-radius: 5px;
   margin-bottom: 80px;
 }
@@ -109,10 +123,30 @@ body {
   margin-left: 30px;
 }
 
-/* pagina graficos */
 
-.dash-header {
-  background-color: #212124;
+
+
+
+
+/* ----------------------------------- -------------------------------------------------------------- */
+
+.header-left a {
+  text-decoration: none;
+  color: white;
+}
+
+.header-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100vh;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--escurooo);
 }
 
 .dash {
@@ -120,10 +154,18 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-color: #00235a;
+  border-radius: 25px 0 0 25px;
   height: 100vh;
   overflow: auto;
 }
+
+/* ------------------------------------------------- pagina graficos --------------------------------------------- */
+
+.dash-header {
+  background-color: #212124;
+}
+
 
 .area-parametros-alerta {
   /* border: 2px solid pink; */
@@ -210,7 +252,7 @@ body {
   font-size: 20px;
 }
 
-.card-aquario h1 {
+.card-aquario {
   width: fit-content;
 }
 
@@ -329,32 +371,13 @@ canvas {
 
 .janela {
   display: flex;
+  width: 100%;
   /* width: 100vw; */
-}
-
-.header-left a {
-  text-decoration: none;
-  color: white;
-}
-
-.header-left {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  height: 100vh;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
 }
 
 .dash-right {
   display: flex;
-  width: 70%;
+  width: 80%;
   height: fit-content;
   background-color: #161618;
   position: relative;
@@ -372,10 +395,11 @@ canvas {
   width: 100%;
   display: flex;
   justify-content: center;
+  font-family: var(--fonte-principal);
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: var(--azul-claro);
   font-weight: 300;
   font-size: 1.2rem;
 }
@@ -384,22 +408,55 @@ canvas {
   font-weight: 800;
 }
 
-.btn-nav {
-  width: 40%;
-  color: white;
-  background-color: #e6005a;
-  border-radius: 5px;
+/* -------------------------- botoes --------------------------------------- */
+.botao_duvida {
+  width: 140px;
+  height: 50px;
+  background: none;
+  border: 2px solid #e6005a;
+  font-family: var(--fonte-principal);
+  font-size: large;
+  color: #e6005a;
+  border-radius: 5px; 
   text-align: center;
   padding: 2% 5%;
+  cursor: pointer;
 }
 
-.btn-nav-white {
-  width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
-  border-radius: 5px;
+.botao_graf{
+  width: 140px;
+  height: 50px;
+  background: none;
+  border: 2px solid #e6005a;
+  font-family: var(--fonte-principal);
+  font-size: large;
+  color: #e6005a;
+  border-radius: 5px; 
   text-align: center;
   padding: 2% 5%;
+  cursor: pointer;
+}
+
+.botao_exit{
+  width: 100px;
+  height: 50px;
+  background-color: #00235a;
+  font-family: var(--fonte-principal);
+  font-size: large;
+  border: none;
+  color: var(--branco);
+  border-radius: 5px; 
+  text-align: center;
+  padding: 2% 5%;
+  cursor: pointer;
+  transition: 0.8s;
+}
+
+.botao_exit:hover{
+  border: 2px solid var(--azul-claro);
+  color: var(--azul-claro);
+  transition: ease-in-out;
+  font-size: larger;
 }
 
 .btn-nav-white h3 {

@@ -71,7 +71,7 @@ h2 {
     font-size: 30px;
 }
 
-h3{
+h3 {
     font-family: var(--fonte-principal);
     color: #031E49;
     font-size: 25px;
@@ -213,6 +213,13 @@ span {
     color: #031E49;
 }
 
+.div_aguardar {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 /* ------------------------------------------- footer --------------------------------------*/
 
 footer {
@@ -252,4 +259,24 @@ footer {
 
 a {
     text-decoration: none;
+}
+
+@media screen {
+
+    .input-field .input1,
+    .input-field2 .input2,
+    .input-field3 .input3,
+    .input-field4 .input4,
+    .input-field-login1 .input_login1,
+    .input-field-login2 .input_login2 {
+        width: 100%;
+        max-width: 390px;
+        height: 45px;
+        border-radius: 6px;
+        font-size: 18px;
+        padding: 8px 15px;
+        outline: none;
+        color: #031E49;
+        box-sizing: border-box;
+    }
 }
