@@ -4,73 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo - Quiz</title>
+    <title>Quiz - The G Method.</title>
     <link rel="stylesheet" href="./css/estiloquiz_2.css">
+    <link rel="shortcut icon" href="./fotos/favicon.png" type="image/x-icon">
+
 </head>
 
 
 <body onload="onloadEsconder()">
-    <div id="pontuacaoEJogo">
-        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-        <section class="central">
-            <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-                <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                    <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                    <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
-                </div>
-                <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                        <span id="spanPontuacaoFinal">***</span>
-                    </span>
-                    <span id="msgFinal" class="width-fit-content">***</span>
-                </div>
-            </div>
+    <header id="header_lolo">
+        <div class="container">
+            <a href="./areademembros.html">
+                <button class="botao_sair">Sair</button>
+            </a>
+            <h2>Quiz</h2>
+            <img class="foto-header" src="./fotos/apenas bandeiras.png" alt="Bandeiras">
+        </div>
+        <img class="bmw" src="./fotos/bmw.png" alt="Imagem BMW">
+    </header>
 
-            <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+    <section class="info_formulario">
+        <div id="div_inicio" class="div_inicio">
+            <h1>Aqui está o seu quiz para treino!</h1>
+            <p class="p1">Boa Sorte</p>
+            <p class="p1">Clique no botão iniciar para começar o o Quiz.</p>
+            <p class="p2">Após finalizar você poderá voltar para a Área de membros. </p>
+        </div>
 
-                <div id="infoQuestao" class="padding-8">
-                    <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
-                        questões.</span>
-                </div>
+        <div class="" id="pontuacaoEJogo">
+            <button class="btn btn2" id="btnIniciarQuiz" onclick="iniciarQuiz()">Iniciar</button>
 
-                <div id="perguntaDaQuestaoAtual" class="padding-8">
-                    <span id="spanQuestaoExibida" class="text-bold"></span>
-                </div>
-
-                <div id="infoAlternativas" class="padding-8">
-                    <span><em>Escolha uma opção dentre as abaixo:</em></span>
-                </div>
-
-                <div id="opcoes" class="flex-colunar padding-8">
-                    <span>
-                        <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                        <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                    </span>
-                    <span>
-                        <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                        <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                    </span>
-                    <span>
-                        <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                        <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                    </span>
-                    <span>
-                        <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                        <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                    </span>
+            <section class="central">
+                <div id="pontuacao" class="div_pontuacao">
+                    <div id="pontuacaoDuranteJogo" class="flex_pontuacao">
+                        <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                        <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                    </div>
+                    <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                        <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                            <span id="spanPontuacaoFinal">***</span>
+                        </span>
+                        <span id="msgFinal" class="width-fit-content">***</span>
+                    </div>
                 </div>
 
-                <div id="botoes" class="flex-colunar padding-8">
-                    <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                    <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                    <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                    <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
-                </div>
+                <div id="jogo" class="div_jogo">
+                    <div id="infoQuestao" class="questao_life">
+                        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
+                                id="qtdQuestoes"></span>
+                            questões.</span>
+                    </div>
 
-            </div>
-        </section>
-    </div>
+                    <div id="perguntaDaQuestaoAtual" class="questao_efli">
+                        <span id="spanQuestaoExibida" class="text-bold"></span>
+                    </div>
+
+                    <div id="infoAlternativas" class="padding-8">
+                        <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                    </div>
+
+                    <div id="opcoes" class="opcoes_resposta">
+                        <span>
+                            <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                            <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                            <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                            <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                            <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                        </span>
+                    </div>
+
+                    <div id="botoes" class="div_botoes_dev">
+                        <button class="botao_dev" onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                        <button class="botao_dev" onclick="avancar()" id="btnProx" disabled>Avançar para próxima
+                            questão</button>
+                        <button class="botao_dev" onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar
+                            novamente</button>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </section>
 </body>
 
 </html>
@@ -78,30 +102,111 @@
     const listaDeQuestoes = [
 
         {
-            pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
+            pergunta: "Você está em um café nos Estados Unidos e quer pedir um biscoito (cookie). Qual frase você usaria?",
+            alternativaA: "I'd like a biscuit, please.",
+            alternativaB: "Can I have a cookie, please?",
+            alternativaC: "I want a cracker, please.",
+            alternativaD: "Could you give me a wafer, please?",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Você está conversando com um amigo britânico e ele pergunta como você está. Qual seria uma resposta informal e comum?",
+            alternativaA: "I'm splendid, thank you.",
+            alternativaB: "I'm doing quite well, thanks.",
+            alternativaC: "I'm doing alright, cheers.",
+            alternativaD: "I am satisfactory, thank you.",
             alternativaCorreta: "alternativaC"
         },
 
         {
-            pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
+            pergunta: "Qual a palavra para *Boné* em inglês?",
+            alternativaA: "Cab",
+            alternativaB: "Bonnet",
+            alternativaC: "Hat",
+            alternativaD: "Helmet",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Qual é a tradução correta da palavra Empresa",
+            alternativaA: "Company",
+            alternativaB: "Firm",
+            alternativaC: "Enterprises",
+            alternativaD: "Helmet",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Você está em uma loja na Espanha e gostaria de saber o preço de uma bolsa. Como você perguntaria?",
+            alternativaA: "¿Cuánto cuesta esto?",
+            alternativaB: "¿Qué precio tiene eso?",
+            alternativaC: "¿Cuánto vale aquello?",
+            alternativaD: "¿A cómo está?",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Um amigo espanhol te convida para ir ao cinema. Como você expressa seu entusiasmo de forma informal?",
+            alternativaA: "¡Estoy muy feliz de ir!",
+            alternativaB: "¡Qué ganas de ir!",
+            alternativaC: "¡Me apetece mucho ir!",
+            alternativaD: "¡Es muy interesante!",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Qual a palavra para *Geladeira* em espanhol?",
+            alternativaA: "Refrigerador",
+            alternativaB: "Congelador",
+            alternativaC: "Frigorífico",
+            alternativaD: "Nevera",
             alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
+            pergunta: "Qual é a tradução correta da palavra Largo",
+            alternativaA: "Extenso",
+            alternativaB: "Ancho",
+            alternativaC: "Largo",
+            alternativaD: "Amplio",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Você está em um restaurante na França e quer pedir um copo de água. Qual frase você usaria?",
+            alternativaA: "Un verre d'eau, s'il vous plaît.",
+            alternativaB: "Un verre d'eau, merci.",
+            alternativaC: "Je voudrais un verre d'eau.",
+            alternativaD: "Je veux un verre d'eau.",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Você está conhecendo alguém na França pela primeira vez. Qual seria uma saudação formal?",
+            alternativaA: "Salut!",
+            alternativaB: "Bonne journée!",
+            alternativaC: "Bonjour, enchanté(e)!",
+            alternativaD: "Comment allez-vous*?*",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Qual a palavra para *Livro* em francês?",
+            alternativaA: "Bouquin",
+            alternativaB: "Carnet",
+            alternativaC: "Manuel",
+            alternativaD: "Livre",
             alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual é a tradução correta da palavra Informal",
+            alternativaA: "Informel",
+            alternativaB: "Décontracté",
+            alternativaC: " Non-officiel",
+            alternativaD: "Actuel",
+            alternativaCorreta: "alternativaA"
         }
 
     ]
@@ -115,15 +220,20 @@
     let quantidadeDeQuestoes = listaDeQuestoes.length
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
+    var pontuacaoDIV = document.getElementById('pontuacao');
+    var jogo
+
     function onloadEsconder() {
-        document.getElementById('pontuacao').style.display = "none"
+        pontuacaoDIV.style.display = "none"
         document.getElementById('jogo').style.display = "none"
+
     }
 
     function iniciarQuiz() {
-        document.getElementById('pontuacao').style.display = "flex"
+        pontuacaoDIV.style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
+        document.getElementById('div_inicio').style.display = "none"
 
         document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
 
@@ -271,16 +381,21 @@
         else if (porcentagemFinalDeAcertos >= 0.9) {
             textoParaMensagemFinal = "Uau, parabéns!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
+            
         }
 
         textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
-        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal;
         document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
+        document.getElementById('spanNumeroDaQuestaoAtual').classList.add("text-new-gray")
         document.getElementById('jogo').classList.add("text-new-gray")
+        document.getElementById('btnProx').classList.add("text-new-gray")
+        document.getElementById('btnSubmeter').classList.add("text-new-gray")   
+
 
         btnProx.disabled = true
         btnSubmeter.disabled = true

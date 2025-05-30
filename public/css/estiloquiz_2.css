@@ -1,7 +1,12 @@
-/* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
-/* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 
 :root {
+    --azul-escuro: #031E49;
+    --azul-claro: #4599FE;
+    --vermelho: #EE0405;
+    --branco: #FFFDFE;
+    --preto: #000000;
+    --fonte-principal: 'Poppins';
     --primary-brand-color: #ED145B;
     --secondary-brand-color: #0762C8;
     --success: #198754;
@@ -18,50 +23,88 @@
     --new-white: #E8E8E8;
 }
 
+a{
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    color: var(--new-black);
-    background-color: var(--new-white);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #1f1f1f;
+    font-family: var(--fonte-principal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 button {
     font-family: monospace;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.flex-colunar {
+/* HEADER */
+
+header {
+    background-color: var(--branco);
+    width: 100%;
+    height: 88px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.container {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
 }
 
-.width-fit-content {
-    width: fit-content;
+.foto-header {
+    height: 40px;
+    margin-right: 15px;
 }
 
-.border-primary {
-    border: 3px solid var(--primary-brand-color);
+.botao_sair {
+    margin-left: 15px;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    width: 110px;
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
 }
 
-.border-secondary {
-    border: 3px solid var(--secondary-brand-color);
+.botao_sair:hover {
+    transform: scale(1.1);
+    background-color: var(--branco);
+    color: var(--azul-escuro);
+    border: 2px solid var(--azul-escuro);
 }
 
-.padding-8 {
-    padding: 8px;
+.bmw {
+    width: 100%;
+    position: absolute;
+    top: 75px;
 }
 
-.text-bold {
-    font-weight: bold;
-}
+/* INTRODUÇÃO AO do QUiz */
 
 .text-success-with-bg {
     color: var(--success-dark);
     background-color: var(--success-light);
-}
-
-.text-warning-with-bg {
-    color: var(--warning-dark);
-    background-color: var(--warning-light);
 }
 
 .text-danger-with-bg {
@@ -73,11 +116,234 @@ button {
     color: var(--new-gray);
 }
 
-/* ------------------------------------ site por mim ---------------------------------------------*/
+.info_formulario {
+    background-color: var(--branco);
+    width: 100%;
+    max-width: 800px;
+    margin-top: 130px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
-.central{
+.div_inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+/* ------------------------------ */
+
+.div_jogo {
+    /* Quantidade de acertos: Quantidade de erros: */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.div_pontuacao {
+    /* Pontuação Final: *** *** */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-bottom: 32px;
+    color: #ffffff;
+    background-color: #1f1f1f;
+    padding: 2%;
+    border-radius: 15px;
+
+}
+
+.flex_pontuacao {
+    /* Quantidade de acertos: Quantidade de erros: */
+    display: flex;
+    flex-direction: column;
+
+}
+
+.questao_life {
+    /* Questão atual: */
+    margin-bottom: 15px;
+    color: var(--azul-escuro);
+    font-size: larger;
+
+}
+
+.questao_efli {
+    margin-bottom: 15px;
+
+}
+
+.opcoes_resposta {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Botoes */
+
+.div_botoes_dev {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 25px;
+
+}
+
+.botao_dev {
+    color: var(--azul-escuro);
+    border: 2px var(--azul-escuro) solid;
+    background: none;
+    padding: 10px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 10px;
+}
+
+.botao_dev:hover {
+    color: #015701;
+    border: #46ca46 solid 2px;
+}
+
+
+
+/* TIPOGRAFIA */
+
+.container h2 {
+    font-family: var(--fonte-principal);
+    color: var(--azul-escuro);
+    font-weight: lighter;
+    text-align: center;
+    margin-left: 140px;
+
+}
+
+h1,
+h2 {
+    font-family: var(--fonte-principal);
+    color: var(--azul-escuro);
+    font-weight: lighter;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p,
+label {
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+}
+
+.p1 {
+    font-weight: normal;
+}
+
+.p2 {
+    font-weight: bold;
+}
+
+/* BOTÕES */
+
+.btn {
+    border: 2px solid var(--vermelho);
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "montserrat";
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    font-family: var(--fonte-principal);
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--vermelho);
+    z-index: -1;
+    transition: 0.8s;
+}
+
+.btn2 {
+    color: var(--vermelho);
+
+}
+
+.btn2:hover {
+    color: var(--branco);
+    background-color: var(--vermelho);
+
+}
+
+.btn2::before {
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+
+.btn2:hover::before {
+    height: 180%;
+}
+
+
+/* QUESTÕES */
+
+.pergunta {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
     flex-direction: column;
+    gap: 10px;
+    margin-bottom: 60px;
+}
+
+textarea.input1 {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+
+    .info_formulario,
+    .formulario_onepage {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .botao_sair {
+        font-size: 16px;
+        width: 90px;
+        height: 36px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
 }
