@@ -70,7 +70,7 @@ header {
 .head2 {
   width: 50%;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   display: flex;
   justify-content: space-evenly;
 }

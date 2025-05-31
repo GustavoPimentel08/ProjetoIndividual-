@@ -71,6 +71,33 @@ header {
     color: #031E49;
 }
 
+.div_dh {
+    display: flex;
+    justify-content: center;
+}
+
+.dh_01 {
+    color: #4599FE;
+    font-family: var(--fonte-principal);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.dh_02 {
+    color: var(--vermelho);
+    font-family: var(--fonte-principal);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.dh_01:hover,
+.dh_02:hover {
+    color: var(--branco);
+    transform: scale(1.1);
+}
+
 h1 {
     font-family: var(--fonte-principal);
     color: var(--branco);
@@ -119,7 +146,7 @@ section {
 
 /* ---------------------------------------- espanhol -------------------------------------- */
 
-.espanhol_2{
+.espanhol_2 {
     width: 70%;
     margin-left: 50px;
 }
@@ -127,7 +154,7 @@ section {
 /* ---------------------------------------- frances -------------------------------------*/
 
 
-section .section_frances{
+section .section_frances {
     height: 50%;
     display: flex;
     align-items: center;

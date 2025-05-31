@@ -162,7 +162,21 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    margin-top: 25px;
 
+}
+
+.loading-div p{
+    font-family: var(--fonte-principal);
+    font-size: smaller;
+
+}
+
+.loading-div a{
+    text-decoration: underline;
+    color: #005397;
+    
 }
 
 .botao {
@@ -184,7 +198,6 @@ span {
 
 .botao:hover {
     transform: scale(1.1);
-    ;
     color: #031E49;
 }
 
@@ -211,12 +224,7 @@ span {
     transform: scale(1.1);
     ;
     color: #031E49;
-}
-
-.div_aguardar {
-    display: flex;
-    flex-direction: column;
-}
+}   
 
 
 
