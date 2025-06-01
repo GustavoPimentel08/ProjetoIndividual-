@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Explicação - The G Method.</title>
+
+
+    <link rel="stylesheet" href="./../css/dashboards.css">
+    <link rel="shortcut icon" href="./fotos/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+</head>
+
+<body>
+
+    <div class="janela">
+
+        <div class="janela">
+            <div class="header-left">
+                <!-- <h1>AquaTech</h1> -->
+
+                <div class="hello">
+                    <img src="../fotos/the g method logo (1).png" alt="">
+                </div>
+
+                <div class="hello">
+                    <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                </div>
+
+                <a class="aa" href="./explicacao.html"><span>Dúvidas</span><i></i></a>
+                <a class="ab" href="./dashboard.html"><span>Gráficos</span><i></i></a>
+
+                <a href="../areademembros.html">
+                    <button class="botao_exit">Sair</button>
+                </a>
+
+            </div>
+
+            <div class="dash"> <!-- id="alerta" id="btnAquario" id="graficos" id's que ja tinham do aqua tech-->
+                <section class="cima_dash1">
+                    <div class="kpi1">Modelo de estudo mais preferido pelos usuários: <span>Solo</span></div>
+                    <div class="kpi1">Idiomas com mais acertos: <span>Inglês</span></div>
+                </section>
+                <section class="meio_dash2">
+                    <canvas id="myChart" class="chart1"></canvas>
+                    <canvas id="myChart3" class="chart2"></canvas>
+                </section>
+                <section class="baixo_dash3">
+                    <canvas id="myChart2" class="chart2"></canvas>
+                    <div class="div_chart4">
+                        <div class=""></div>
+                        <div class="fotos">
+                            <img class="img_theg" src="../fotos/nome logo solo .png" alt="">
+                            <img class="img_thegdf" src="../fotos/theg bandeira.png" alt="">
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+
+</body>
+
+<script>
+
+    function exibirAquarios() {
+        JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
+            document.getElementById("cardAquarios").innerHTML += `
+                    <div class="card-aquario">
+                        <div class="title-aquario">
+                            <h1>${item.descricao}</h1>
+                        </div>
+                        <div class="desc-aquario">
+                        <div class="temperatura">
+                            <p id="temp_aquario_${item.id}">-°C</p>
+                        </div>
+                        <div class="cor-alerta" id="card_${item.id}"></div>
+                    </div>
+                    </div>
+                    `
+        });
+    }
+
+</script>
+
+</html>

@@ -53,10 +53,12 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #00235a;
   border-radius: 25px 0 0 25px;
   height: 100vh;
   overflow: auto;
+  background-image: url(../foto-gustavo/citysofar.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* ------------------------------------------------- pagina graficos --------------------------------------------- */
@@ -243,6 +245,7 @@ body {
   flex-direction: row;
   height: 10%;
   width: 100%;
+  justify-content: space-around;
 
 }
 
@@ -259,8 +262,25 @@ body {
   flex-direction: row;
   height: 45%;
   width: 100%;
-
+  justify-content: space-around;
 }
+
+
+
+/* KPI */ 
+
+  .kpi1{
+    background-color: var(--escurooo);
+    color: #FFFDFE;
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 35px #00112c;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+  }
 
 /* graficos */
 
@@ -270,6 +290,9 @@ body {
   border-radius: 10px;
   max-width: 40%;
   max-height: 90%;
+  box-shadow: 0 0 35px #00112c;
+  color: var(--branco);
+  padding: 1%;
 }
 
 .chart2 {
@@ -278,5 +301,29 @@ body {
   border-radius: 10px;
   max-width: 40%;
   max-height: 90%;
+  box-shadow: 0 0 35px #00112c;
+  padding: 1%;
 
+}
+
+.div_chart4{
+  display: flex;
+  width: 435px;
+  height: 200px;
+  background-color: #212124;
+  border-radius: 10px;
+
+}
+
+.fotos{
+  display: flex;
+  flex-direction: row;
+}
+
+.img_theg{
+  height: 15px;
+}
+
+.img_thegdf{
+  height: 20px;
 }
