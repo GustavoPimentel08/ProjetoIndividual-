@@ -45,96 +45,106 @@ setInterval(() => {
 
 
 
-  /* -------------------------------------------------- carousel ----------------------------*/
+/* -------------------------------------------------- carousel ----------------------------*/
 
-  const carousel = document.getElementById('carousel');
-  let isDragging = false;
-  let startX, scrollLeft;
+const carousel = document.getElementById('carousel');
+let isDragging = false;
+let startX, scrollLeft;
 
-  carousel.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.pageX - carousel.offsetLeft;
-    scrollLeft = carousel.scrollLeft;
-    carousel.style.cursor = 'grabbing';
+carousel.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+  carousel.style.cursor = 'grabbing';
+});
+
+carousel.addEventListener('mouseleave', () => {
+  isDragging = false;
+  carousel.style.cursor = 'grab';
+});
+
+carousel.addEventListener('mouseup', () => {
+  isDragging = false;
+  carousel.style.cursor = 'grab';
+});
+
+carousel.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.pageX - carousel.offsetLeft;
+  const walk = (x - startX) * 1.5;
+  carousel.scrollLeft = scrollLeft - walk;
+});
+
+carousel.addEventListener('scroll', updateFocus);
+
+function updateFocus() {
+  const imgs = carousel.querySelectorAll('img');
+  const center = carousel.scrollLeft + carousel.offsetWidth / 2;
+
+  imgs.forEach((img) => {
+    const imgCenter = img.offsetLeft + img.offsetWidth / 2;
+    const distance = Math.abs(center - imgCenter);
+    const scale = Math.max(0.7, 1 - distance / 600);
+    const opacity = Math.max(0.3, 1 - distance / 600);
+
+    img.style.transform = `scale(${scale})`;
+    img.style.opacity = opacity;
+
+    img.classList.toggle('focus', distance < img.offsetWidth / 2);
+  });
+}
+
+window.addEventListener('load', updateFocus);
+
+/* ----------------------- dots ----------------------*/
+
+const dotsContainer = document.getElementById('dots');
+const images = carousel.querySelectorAll('img');
+
+// Cria as bolinhas com base no número de imagens
+images.forEach((_, index) => {
+  const dot = document.createElement('span');
+  dot.classList.add('dot');
+  if (index === 0) dot.classList.add('active');
+  dotsContainer.appendChild(dot);
+});
+
+const dots = dotsContainer.querySelectorAll('.dot');
+
+// Atualiza a bolinha ativa dentro da função updateFocus()
+function updateFocus() {
+  const center = carousel.scrollLeft + carousel.offsetWidth / 2;
+  let activeIndex = 0;
+
+  images.forEach((img, i) => {
+    const imgCenter = img.offsetLeft + img.offsetWidth / 2;
+    const distance = Math.abs(center - imgCenter);
+    const scale = Math.max(0.7, 1 - distance / 600);
+    const opacity = Math.max(0.3, 1 - distance / 600);
+
+    img.style.transform = `scale(${scale})`;
+    img.style.opacity = opacity;
+
+    if (distance < img.offsetWidth / 2) {
+      activeIndex = i;
+    }
   });
 
-  carousel.addEventListener('mouseleave', () => {
-    isDragging = false;
-    carousel.style.cursor = 'grab';
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === activeIndex);
   });
-
-  carousel.addEventListener('mouseup', () => {
-    isDragging = false;
-    carousel.style.cursor = 'grab';
-  });
-
-  carousel.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - carousel.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    carousel.scrollLeft = scrollLeft - walk;
-  });
-
-  carousel.addEventListener('scroll', updateFocus);
-
-  function updateFocus() {
-    const imgs = carousel.querySelectorAll('img');
-    const center = carousel.scrollLeft + carousel.offsetWidth / 2;
-
-    imgs.forEach((img) => {
-      const imgCenter = img.offsetLeft + img.offsetWidth / 2;
-      const distance = Math.abs(center - imgCenter);
-      const scale = Math.max(0.7, 1 - distance / 600);
-      const opacity = Math.max(0.3, 1 - distance / 600);
-
-      img.style.transform = `scale(${scale})`;
-      img.style.opacity = opacity;
-
-      img.classList.toggle('focus', distance < img.offsetWidth / 2);
-    });
-  }
-
-  window.addEventListener('load', updateFocus);
-
-  /* ----------------------- dots ----------------------*/
-
-  const dotsContainer = document.getElementById('dots');
-  const images = carousel.querySelectorAll('img');
-
-  // Cria as bolinhas com base no número de imagens
-  images.forEach((_, index) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active');
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = dotsContainer.querySelectorAll('.dot');
-
-  // Atualiza a bolinha ativa dentro da função updateFocus()
-  function updateFocus() {
-    const center = carousel.scrollLeft + carousel.offsetWidth / 2;
-    let activeIndex = 0;
-
-    images.forEach((img, i) => {
-      const imgCenter = img.offsetLeft + img.offsetWidth / 2;
-      const distance = Math.abs(center - imgCenter);
-      const scale = Math.max(0.7, 1 - distance / 600);
-      const opacity = Math.max(0.3, 1 - distance / 600);
-
-      img.style.transform = `scale(${scale})`;
-      img.style.opacity = opacity;
-
-      if (distance < img.offsetWidth / 2) {
-        activeIndex = i;
-      }
-    });
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === activeIndex);
-    });
-  }
+}
 
 
-  
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const scrollAmount = 400; // quanto ele rola por clique
+
+prevBtn.addEventListener('click', () => {
+  carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+
+nextBtn.addEventListener('click', () => {
+  carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});

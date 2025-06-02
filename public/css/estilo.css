@@ -384,7 +384,6 @@ h1 {
   font-family: var(--fonte-principal);
   text-align: center;
   font-size: larger;
-  font-weight: bold;
 
 }
 
@@ -457,20 +456,6 @@ h1 {
 
 }
 
-/*  ------------------------------ MAPA MUNDÍ ---------------------------------------------------*/
-
-.tt-section05 {
-  font-family: var(--fonte-principal);
-  margin-left: 40px;
-  margin-bottom: 50px;
-
-}
-
-.foto-planeta {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-}
 
 
 /* --------------------------------Sobre Mim ------------------------------------------------------*/
@@ -593,6 +578,41 @@ h1 {
 .dot.active {
   background-color: #333;
 }
+
+
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  padding: 10px 16px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.1);
+}
+
+.carousel-btn.left {
+  left: 30px;
+}
+
+.carousel-btn.right {
+  right: 30px;
+}
+
+.carousel-container {
+  position: relative; /* necessário para posicionar os botões */
+}
+
 
 
 /* === */
@@ -780,14 +800,12 @@ a{
 /* --------------------------------------------------------------------------*/
 
 
-.section3{
-  font-weight: bold;
+.section3{  
   text-align: center;
 }
 
 .textos_idiomas{
   font-family: var(--fonte-principal);
-  font-weight: bold;  
   padding: 2%;
 
 }

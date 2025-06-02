@@ -4,6 +4,7 @@
 body {
     background-color: #00122e;
     position: relative;
+    text-align: justify;
 
 }
 
@@ -105,7 +106,58 @@ h1 {
     font-weight: lighter;
 }
 
+
+/* metodo parte cima -----------------------------------------------------------------------*/
+
+.section_metodo {
+    display: flex;
+    justify-content: center;
+}
+
+
+.metodo_2 {
+    width: 80%;
+    background-color: #1f1f1f;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+h3 {
+    font-family: var(--fonte-principal);
+    color: var(--azul-claro);
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+h4 {
+    font-family: var(--fonte-principal);
+    color: var(--azul-claro);
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.texto_mt {
+    font-family: var(--fonte-principal);
+    color: var(--branco);
+    font-size: 15px;
+    font-weight: lighter;
+
+}
+
+
+
+
+
+
+
 /* --------------------------------- CORPO Ingles-----------------------------------------*/
+
+.section_ingles{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
 
 h2 {
     font-family: var(--fonte-principal);
@@ -128,15 +180,6 @@ section {
     margin-top: 150px;
 }
 
-.ingles_1 {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-}
-
-.ingles_2 {
-    width: 70%;
-}
 
 .back_en {
     height: 70vh;
@@ -184,4 +227,10 @@ section .section_frances {
 
 a {
     text-decoration: none;
+}
+
+.soc{
+    height: 90px;
+    width: 100%;
+    color: var(--azul-escuro);
 }

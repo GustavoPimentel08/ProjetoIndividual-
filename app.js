@@ -35,6 +35,18 @@ app.use("/medidas", medidasRouter);
 app.use("/aquarios", aquariosRouter);
 app.use("/empresas", empresasRouter);
 
+
+
+
+/* ---------------- começo da rota the g method. ----------------------------------------------------------- */
+var formularioRouter = require("./src/routes/formulario")
+
+app.use("/formulario", formularioRouter);
+
+
+
+
+
 app.listen(PORTA_APP, function () {
     console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  
