@@ -51,14 +51,6 @@
             </section>
             <section class="baixo_dash3">
                 <canvas id="myChart2" class="chart2"></canvas>
-                <div class="div_chart4">
-                    <div class=""></div>
-                    <div class="fotos">
-                        <img class="img_theg" src="../fotos/nome logo solo .png" alt="">
-                        <img class="img_thegdf" src="../fotos/theg bandeira.png" alt="">
-                    </div>
-
-                </div>
             </section>
         </div>
     </div>
@@ -74,6 +66,162 @@
 
 
 <script>
+
+function obterDados() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+        // Graficos de barra  ------------------------------------------------------------------------------------------------------
+        fetch(`/kpi/barra/${idUsuario}`).then(function (response) {
+            console.log("2 - Dados para barra: /n");
+            console.log(response);
+            // if (!response.ok) {
+            //     throw new Error("Testando se o problem é na resposta: " + response.status);
+            // }
+            return response.json();
+        })
+            .then(function (data) {
+                console.log("2.1 - Deu bom, vamos plotar o gráfico de linha! /n");
+                console.log(data);
+                plotarGraficoBarra(data);
+            })
+            .catch(function (err) {
+                console.log("2.2 - Deu ruim no grafico de barra, aqui no fetch /n");
+                console.log(err);
+            })
+
+
+
+        // Graficos de barra ------------------------------------------------------------------------------------------------------
+        fetch(`/kpi/barra1/${idUsuario}`).then(function (response) {
+            console.log("2 - Dados para barra: /n");
+            console.log(response);
+            // if (!response.ok) {
+            //     throw new Error("Testando se o problem é na resposta: " + response.status);
+            // }
+            return response.json();
+        })
+            .then(function (data) {
+                console.log("2.1 - Deu bom, vamos plotar o gráfico de linha! /n");
+                console.log(data);
+                plotarGraficoBarra(data);
+            })
+            .catch(function (err) {
+                console.log("2.2 - Deu ruim no grafico de barra, aqui no fetch /n");
+                console.log(err);
+            })
+
+
+
+    }
+
+    function plotarGraficoBarra(data) {
+        // Separando os rótulos (labels) e os dados dos votos
+        const lista_ppm = [];
+        const lista_nome = [];
+
+        // Preenchendo os arrays com os dados
+        for (var i = 0; i < data.length; i++) {
+            lista_ppm.push(Number(data[i].media));
+            lista_nome.push(data[i].nome_loc)
+        }
+
+        // Gráfico de barras
+        new Chart(document.getElementById("chart1"), {
+            type: 'bar',
+            data: {
+                labels: lista_nome,
+                datasets: [{
+                    label: 'ppm',
+                    data: lista_ppm,
+                    backgroundColor: ['#1F77B4', '#FF7F0E', '#2CA02C', '#9467BD']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Níveis médios de Amônia por Setor (ppm)',
+                        font: {
+                            size: 12
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 8
+                            }
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 8
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     const labels = ['Visual', 'Auditivo', 'Leitura/Escrita', 'Cinestésico'];
 

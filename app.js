@@ -40,8 +40,16 @@ app.use("/empresas", empresasRouter);
 
 /* ---------------- começo da rota the g method. ----------------------------------------------------------- */
 var formularioRouter = require("./src/routes/formulario")
-
 app.use("/formulario", formularioRouter);
+
+
+var quizRouter = require("./src/routes/quiz")
+app.use("/quiz", quizRouter);
+
+
+var kpiRouter = require("./src/routes/kpi")
+app.use("/kpi", kpiRouter);
+
 
 
 

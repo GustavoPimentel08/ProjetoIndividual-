@@ -87,8 +87,7 @@
                         <button class="botao_dev" onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                         <button class="botao_dev" onclick="avancar()" id="btnProx" disabled>Avançar para próxima
                             questão</button>
-                        <button class="botao_dev" onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar
-                            novamente</button>
+                        <button class="botao_dev" onclick="alocar()" id="btnTentarNovamente" disabled>Finalizar Partida</button>
                     </div>
 
                 </div>
@@ -314,6 +313,12 @@
         window.location.reload()
     }
 
+
+    var contador = 0;
+    var qtd_acertoIngles = 0;
+    var qtd_acertoEspanhol = 0;
+    var qtd_acertoFrances = 0;
+
     function checarResposta() {
         const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
         const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
@@ -328,7 +333,7 @@
                 alternativaCorreta = option.labels[0].id
             }
         })
-
+        contador++;
         // verifica se resposta assinalada é correta
         options.forEach((option) => {
             if (option.checked === true && option.value === respostaQuestaoAtual) {
@@ -337,6 +342,15 @@
                 certas++
                 document.getElementById("spanCertas").innerHTML = certas
                 numeroDaQuestaoAtual++
+
+                if (contador <= 4) {
+                    qtd_acertoIngles++
+                } else if (contador <= 8) {
+                    qtd_acertoEspanhol++
+                } else if (contador <= 12) {
+                    qtd_acertoFrances++
+                }
+
             } else if (option.checked && option.value !== respostaQuestaoAtual) {
                 const wrongLabelId = option.labels[0].id
 
@@ -347,8 +361,56 @@
                 document.getElementById("spanErradas").innerHTML = erradas
                 numeroDaQuestaoAtual++
             }
+
+            
         })
+        
+
     }
+
+    var idUsuario = Number(sessionStorage.ID_USUARIO)
+    function alocar() {
+        
+        fetch("/quiz/alocar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                qtd_acertoInglesServer: qtd_acertoIngles,
+                qtd_acertoEspanholServer: qtd_acertoEspanhol,
+                qtd_acertoFrancesServer: qtd_acertoFrances,
+                idUsuarioServer: idUsuario
+                // idEmpresaVincularServer: idEmpresaVincular
+            }),
+        })
+            .then(function (resposta) { // retorno das informaçoes 
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    mensagem_erro.innerHTML =
+                        "Inserção realizada com sucesso! Redirecionando para Area de membros...";
+                    console.log("qtd_acertoIngles; ", qtd_acertoIngles);
+                    console.log("qtd_acertoEspanhol; ", qtd_acertoEspanhol);
+                    console.log("qtd_acertoFrances; ", qtd_acertoFrances);
+
+                    resposta.json().then(json => {
+                    })
+                } else {
+                    throw "Houve um erro ao tentar realizar a inserção do quiz pagina2 / SOS";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+       alert("Respostas enviadas com sucesso!");
+       window.location.href = "areademembros.html";
+    }
+
 
     function limparCoresBackgroundOpcoes() {
         const options = document.getElementsByName("option");
@@ -381,7 +443,7 @@
         else if (porcentagemFinalDeAcertos >= 0.9) {
             textoParaMensagemFinal = "Uau, parabéns!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
-            
+
         }
 
         textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
@@ -394,13 +456,12 @@
         document.getElementById('spanNumeroDaQuestaoAtual').classList.add("text-new-gray")
         document.getElementById('jogo').classList.add("text-new-gray")
         document.getElementById('btnProx').classList.add("text-new-gray")
-        document.getElementById('btnSubmeter').classList.add("text-new-gray")   
+        document.getElementById('btnSubmeter').classList.add("text-new-gray")
 
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = false
-
     }
 </script>

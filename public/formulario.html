@@ -90,24 +90,24 @@
     </section>
 
     <script>
-        var pergunta1 = [];
+        var pergunta1 = ""; // pode ser var normal
         var pergunta2 = [];
-        var pergunta3 = [];
+        var pergunta3 = ''; // pode ser var normal
 
-        var pergunta1_1 = pergunta1_1.value;
-        var pergunta1_2 = pergunta1_2.value;
-        var pergunta1_3 = pergunta1_3.value;
-        var pergunta1_4 = pergunta1_4.value;
+        var questao1_1 = document.getElementById("pergunta1_1");
+        var questao1_2 = document.getElementById("pergunta1_2");
+        var questao1_3 = document.getElementById("pergunta1_3");
+        var questao1_4 = document.getElementById("pergunta1_4");;
 
-        var pergunta2_1 = pergunta2_1.value;
-        var pergunta2_2 = pergunta2_2.value;
-        var pergunta2_3 = pergunta2_3.value;
-        var pergunta2_4 = pergunta2_4.value;
-        var pergunta2_5 = pergunta2_5.value;
+        var questao2_1 = pergunta2_1.value;
+        var questao2_2 = pergunta2_2.value;
+        var questao2_3 = pergunta2_3.value;
+        var questao2_4 = pergunta2_4.value;
+        var questao2_5 = pergunta2_5.value;
 
-        var pergunta3_1 = pergunta3_1.value;
-        var pergunta3_2 = pergunta3_2.value;
-        var pergunta3_3 = pergunta3_3.value;
+        var questao3_1 = pergunta3_1.value;
+        var questao3_2 = pergunta3_2.value;
+        var questao3_3 = pergunta3_3.value;
 
 
         function onloadEsconder() {
@@ -123,48 +123,64 @@
 
         function enviarRespostas() {
 
+        var questao1_1 = document.getElementById("pergunta1_1");
+        var questao1_2 = document.getElementById("pergunta1_2");
+        var questao1_3 = document.getElementById("pergunta1_3");
+        var questao1_4 = document.getElementById("pergunta1_4");
+
+        var questao2_1 = document.getElementById('pergunta2_1');
+        var questao2_2 = document.getElementById('pergunta2_2');
+        var questao2_3 = document.getElementById('pergunta2_3');
+        var questao2_4 = document.getElementById('pergunta2_4');
+        var questao2_5 = document.getElementById('pergunta2_5');
+
+        var questao3_1 = document.getElementById('pergunta3_1');
+        var questao3_2 = document.getElementById('pergunta3_2');
+        var questao3_3 = document.getElementById('pergunta3_3');
+
             //Pergunta 1 - Vai adicionar na lista para ir para o BD
-            if (pergunta1_1 != "") {
-                pergunta1.push(pergunta1_1)
+            if (questao1_1.checked) {
+                pergunta1 = (pergunta1_1.value)
             }
-            if (pergunta1_2 != "") {
-                pergunta1.push(pergunta1_2)
+            if (questao1_2.checked) {
+                pergunta1 = (pergunta1_2.value)
             }
-            if (pergunta1_3 != "") {
-                pergunta1.push(pergunta1_2)
+            if (questao1_3.checked) {
+                pergunta1 = (pergunta1_3.value)
             }
-            if (pergunta1_4 != "") {
-                pergunta1.push(pergunta1_2)
+            if (questao1_4.checked) {
+                pergunta1 = (pergunta1_4.value)
             }
 
             //Pergunta 2 - Vai adicionar na lista para ir para o BD
-            if (pergunta2_1 != "") {
-                pergunta2.push(pergunta2_1)
+            if (questao2_1.checked) {
+                pergunta2.push(pergunta2_1.value)
             }
-            if (pergunta2_2 != "") {
-                pergunta2.push(pergunta2_2)
+            if (questao2_2.checked) {
+                pergunta2.push(pergunta2_2.value)
             }
-            if (pergunta2_3 != "") {
-                pergunta2.push(pergunta2_3)
+            if (questao2_3.checked) {
+                pergunta2.push(pergunta2_3.value)
             }
-            if (pergunta2_4 != "") {
-                pergunta2.push(pergunta2_4)
+            if (questao2_4.checked) {
+                pergunta2.push(pergunta2_4.value)
             }
-            if (pergunta2_5 != "") {
-                pergunta2.push(pergunta2_5)
+            if (questao2_5.checked) {
+                pergunta2.push(pergunta2_5.value)
             }
 
             //Pergunta 3 - Vai adicionar na lista para ir para o BD
-            if (pergunta3_1 != "") {
-                pergunta3.push(pergunta3_1)
+            if (questao3_1.checked) {
+                pergunta3 = pergunta3_1.value;
             }
-            if (pergunta3_2 != "") {
-                pergunta3.push(pergunta3_2)
+            if (questao3_2.checked) {
+                pergunta3 = pergunta3_2.value;
             }
-            if (pergunta3_3 != "") {
-                pergunta3.push(pergunta3_2)
+            if (questao3_3.checked) {
+                pergunta3 = pergunta3_3.value;
             }
 
+            var ID_USUARIO = sessionStorage.ID_USUARIO;
 
             fetch("/formulario/inserir", {
                 method: "POST",
@@ -177,6 +193,7 @@
                     pergunta1Server: pergunta1,
                     pergunta2Server: pergunta2,
                     pergunta3Server: pergunta3,
+                    id_usuarioServer: ID_USUARIO
                     // idEmpresaVincularServer: idEmpresaVincular
                 }),
             })
@@ -190,7 +207,12 @@
                         console.log("Pergunta1; ", pergunta1);
                         console.log("Pergunta1; ", pergunta2);
                         console.log("Pergunta1; ", pergunta3);
-
+                        
+                    resposta.json().then(json =>{
+                        sessionStorage.ID_FORMULARIO = json.idFormulario;
+                        console.log(sessionStorage.ID_FORMULARIO)
+                        console.log(sessionStorage.ID_FORMULARIO)
+                    })
                     } else {
                         throw "Houve um erro ao tentar realizar a inserção! / SOS";
                     }
@@ -200,7 +222,7 @@
                 });
 
             alert("Respostas enviadas com sucesso!");
-            window.location.href = "./login.html";
+            // window.location.href = "./login.html";
         }
 
     </script>

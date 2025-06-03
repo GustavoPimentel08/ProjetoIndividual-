@@ -29,7 +29,14 @@ var textos = {
     bbSection: [
         'E acredite ter conhecimento de apenas 1 idioma além da sua lingua natal',
         'Já te torna uma pessoa com uma habilidade especial'
+    ],
+
+    locs: [
+        'Sobre mim',
+        'Meu nome é Gustavo, tenho 18 anos e, mesmo com a minha pouca idade, já vivi diversas experiências incríveis, tudo isso graças ao conhecimento de novos idiomas! Atualmente, falo três idiomas além do meu idioma nativo. São eles: inglês, no qual tenho nível avançado; espanhol, com nível intermediário; e francês, com nível básico. Tenho um enorme orgulho dessa habilidade, principalmente porque foram os acontecimentos da minha vida que despertaram meu interesse em aprender cada um deles.'
     ]
+
+
 }
 
 /* ingles */
@@ -55,6 +62,11 @@ var strings = {
     bbSection: [
         'And believe that you only know 1 language other than your native language.',
         'It already makes you a person with a special ability.'
+    ],
+
+    locs: [
+        'About me',
+        'My name is Gustavo, Im 18 years old, and even at my young age, I ve already had many incredible experiences, all thanks to learning new languages! I currently speak three languages ​​in addition to my native language. They are: English, in which I have an advanced level; Spanish, at an intermediate level; and French, at a basic level. Im very proud of this skill, especially because it was the events in my life that sparked my interest in learning each of them.'
     ]
 
 
@@ -63,19 +75,18 @@ var strings = {
 var idioma = 'ptbr';
 
 function teste() {
-    document.getElementById("section3") = "";
-    document.getElementById("textos_idiomas") = "";
-    document.getElementById("bbSection") = "";
+    section3.innerHTML = "";
+    textos_idiomas.innerHTML = "";
+    bbSection.innerHTML = "";
+    locs.innerHTML = "";
 
-    // document.getElementById('section3').style.display = "flex";
-    // document.getElementById('textos_idiomas').style.display = "flex";
-    // document.getElementById('bbSection').style.display = "flex";
 
 
     if (idioma == 'ptbr') {
         titulo_topicos_relevantes.innerHTML = textos.titulo_topicos_relevantes;
 
         var section = 0;
+        var section_1 = 0;
 
         for (var i = 0; i < textos.textos_idiomas.length; i++) {
 
@@ -97,12 +108,24 @@ function teste() {
                            `;
 
 
-            if (section <= 2) {
+            if (section_1 <= 2) {
                 bbSection.innerHTML += `
                        <div class="bb-section4">
                           <p class="tt-sc4">${textos.bbSection[i]}</p>
-                      </div>
-        `;
+                      </div>`;
+
+
+                locs.innerHTML += `
+                        <h2 class="titulo-section">${textos.locs[i]}</h2>
+                            </div>
+                            <div class="loc-1">
+                                 <div class="loc90">
+                                    <p class="texto_fotos">${textos.locs[i]}</p> <br>
+                                    <p class="texto_fotos">${textos.locs[i]}</p> <br>
+                                    <p class="texto_fotos">${textos.locs[i]}</p>
+                             </div>
+                             </div>`;
+                section_1++
             }
         }
 
@@ -110,6 +133,7 @@ function teste() {
         titulo_topicos_relevantes.innerHTML = strings.titulo_topicos_relevantes;
 
         var section = 0;
+        var section_1 = 0;
 
         for (var i = 0; i < strings.textos_idiomas.length; i++) {
             if (section < 3) {
@@ -132,6 +156,17 @@ function teste() {
                           <p class="tt-sc4">${strings.bbSection[i]}</p>
                       </div>
         `;
+                locs.innerHTML += `
+                        <h2 class="titulo-section">${textos.locs[i]}</h2>
+                            </div>
+                            <div class="loc-1">
+                                 <div class="loc90">
+                                    <p class="texto_fotos">${textos.locs[i]}</p> <br>
+                                    <p class="texto_fotos">${textos.locs[i]}</p> <br>
+                                    <p class="texto_fotos">${textos.locs[i]}</p>
+                             </div>
+                             </div>`;
+                section_1++
             }
         }
     }
