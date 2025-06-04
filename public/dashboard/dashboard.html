@@ -23,9 +23,9 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body>
+<body onload="obterDados(),plotarGraficoPizza()">
 
-    <div class="janela">
+    <div class="janela">    
         <div class="header-left">
             <!-- <h1>AquaTech</h1> -->
 
@@ -42,8 +42,8 @@
 
         <div class="dash"> <!-- id="alerta" id="btnAquario" id="graficos" id's que ja tinham do aqua tech-->
             <section class="cima_dash1">
-                <div class="kpi1">Modelo de estudo mais preferido pelos usuários: <span>Solo</span></div>
-                <div class="kpi1">Idiomas com mais acertos: <span>Inglês</span></div>
+                <div class="kpi1">Estilo de estudo mais preferido pelos usuários: <span id="kpiEstudo">Solo</span></div>
+                <div class="kpi1">Idiomas com mais acertos: <span id="kpiIdioma">Inglês</span></div>
             </section>
             <section class="meio_dash2">
                 <canvas id="myChart" class="chart1"></canvas>
@@ -60,17 +60,20 @@
 
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
 
 
 
 <script>
 
+var kpiIdioma = document.getElementById('kpiIdioma');
+var kpiEstudo = document.getElementById('kpiEstudo');
+
+
 function obterDados() {
         var idUsuario = sessionStorage.ID_USUARIO;
         // Graficos de barra  ------------------------------------------------------------------------------------------------------
-        fetch(`/kpi/barra/${idUsuario}`).then(function (response) {
+        fetch(`/kpi/listarBarra`).then(function (response) {
             console.log("2 - Dados para barra: /n");
             console.log(response);
             // if (!response.ok) {
@@ -78,10 +81,10 @@ function obterDados() {
             // }
             return response.json();
         })
-            .then(function (data) {
-                console.log("2.1 - Deu bom, vamos plotar o gráfico de linha! /n");
-                console.log(data);
-                plotarGraficoBarra(data);
+            .then(function (dataBarra) {
+                console.log("2.1 - Deu bom, vamos plotar o gráfico de barra! /n");
+                console.log(dataBarra);
+                plotarGraficoBarra(dataBarra);
             })
             .catch(function (err) {
                 console.log("2.2 - Deu ruim no grafico de barra, aqui no fetch /n");
@@ -90,8 +93,8 @@ function obterDados() {
 
 
 
-        // Graficos de barra ------------------------------------------------------------------------------------------------------
-        fetch(`/kpi/barra1/${idUsuario}`).then(function (response) {
+        // Graficos de barra1 ------------------------------------------------------------------------------------------------------
+        fetch(`/kpi/listarBarra1`).then(function (response) {
             console.log("2 - Dados para barra: /n");
             console.log(response);
             // if (!response.ok) {
@@ -99,155 +102,96 @@ function obterDados() {
             // }
             return response.json();
         })
-            .then(function (data) {
-                console.log("2.1 - Deu bom, vamos plotar o gráfico de linha! /n");
-                console.log(data);
-                plotarGraficoBarra(data);
+            .then(function (dataBarra1) {
+                console.log("2.1 - Deu bom, vamos plotar o gráfico de barra1! /n");
+                console.log(dataBarra1);
+                plotarGraficoBarra1(dataBarra1);
             })
             .catch(function (err) {
-                console.log("2.2 - Deu ruim no grafico de barra, aqui no fetch /n");
+                console.log("2.2 - Deu ruim no grafico de barra1, aqui no fetch /n");
                 console.log(err);
             })
 
+        // Graficos de Pizza ------------------------------------------------------------------------------------------------------
+        fetch(`/kpi/listarPizza`).then(function (response) {
+            console.log("2 - Dados para barra: /n");
+            console.log(response);
+            // if (!response.ok) {
+            //     throw new Error("Testando se o problem é na resposta: " + response.status);
+            // }
+            return response.json();
+        })
+            .then(function (dataPizza) {
+                console.log("2.1 - Deu bom, vamos plotar o gráfico de pizza! /n");
+                console.log(dataPizza);
+                plotarGraficoPizza(dataPizza);
+            })
+            .catch(function (err) {
+                console.log("2.2 - Deu ruim no grafico de piiza, aqui no fetch /n");
+                console.log(err);
+            })
+        
+        // Informação Estudo Prefirido ------------------------------------------------------------------------------------------------------
+        fetch(`/kpi/listarEstudo`).then(function (response) {
+            console.log("2 - Dados para barra: /n");
+            console.log(response);
+            // if (!response.ok) {
+            //     throw new Error("Testando se o problem é na resposta: " + response.status);
+            // }
+            return response.json();
+        })
+            .then(function (EstudoPreferido) {
+                console.log("2.1 - Deu bom, vamos plotar o gráfico de pizza! /n");
+                console.log(EstudoPreferido);
+                const estudo = EstudoPreferido[0].estilo_estudo
+                kpiEstudo.innerHTML = estudo;
+            })
+            .catch(function (err) {
+                console.log("2.2 - Deu ruim no grafico de piiza, aqui no fetch /n");
+                console.log(err);
+            })
 
+        // Idiomas com mais acertos ------------------------------------------------------------------------------------------------------
+    fetch(`/kpi/listarIdioma`).then(function (response) {
+        console.log("2 - Dados para barra: /n");
+        console.log(response);
+        // if (!response.ok) {
+        //     throw new Error("Testando se o problem é na resposta: " + response.status);
+        // }
+        return response.json();
+    })
+        .then(function (idiomaPreferido) {
+            console.log("2.1 - Deu bom, vamos plotar o gráfico de pizza! /n");
+            console.log(idiomaPreferido);
+            const idioma = idiomaPreferido[0].idioma;
+            kpiIdioma.innerHTML = idioma;
+        })
+        .catch(function (err) {
+            console.log("2.2 - Deu ruim no grafico de piiza, aqui no fetch /n");
+            console.log(err);
+        })
 
+        
     }
 
-    function plotarGraficoBarra(data) {
-        // Separando os rótulos (labels) e os dados dos votos
-        const lista_ppm = [];
-        const lista_nome = [];
+    function plotarGraficoPizza(dataPizza) {
 
-        // Preenchendo os arrays com os dados
-        for (var i = 0; i < data.length; i++) {
-            lista_ppm.push(Number(data[i].media));
-            lista_nome.push(data[i].nome_loc)
+        let modelo_estudo = [];
+        let Quantidades = [];
+
+        for (let i = 0; i < dataPizza.length; i++) {
+            modelo_estudo.push(dataPizza[i].modelo_estudo)
+            Quantidades.push(dataPizza[i].Quantidades)
+            
         }
+        
+        const labels = modelo_estudo;
 
-        // Gráfico de barras
-        new Chart(document.getElementById("chart1"), {
-            type: 'bar',
-            data: {
-                labels: lista_nome,
-                datasets: [{
-                    label: 'ppm',
-                    data: lista_ppm,
-                    backgroundColor: ['#1F77B4', '#FF7F0E', '#2CA02C', '#9467BD']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    title: {
-                        display: true,
-                        text: 'Níveis médios de Amônia por Setor (ppm)',
-                        font: {
-                            size: 12
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            font: {
-                                size: 8
-                            }
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            font: {
-                                size: 8
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    const labels = ['Visual', 'Auditivo', 'Leitura/Escrita', 'Cinestésico'];
-
-    const labels2 = [
-        'Fala - Speaking',
-        'Audição - listening',
-        'Leitura - Reading',
-        ' Escrita - Writing',
-        'Interpretação - Interpretation'
-    ];
-
-    const labels3 = [
-        'Inglês',
-        'Espanhol',
-        'Francês',
-    ];
-
-
-
-
-
-    const data = {
+        const data = {
         labels: labels,
         datasets: [{
             label: 'Dataset 1',
-            data: [10, 20, 30, 25],
+            data: Quantidades,
             backgroundColor: [
                 'rgb(255, 99, 132)',
                 'rgb(255, 159, 64)',
@@ -255,49 +199,17 @@ function obterDados() {
                 'rgb(75, 192, 192)',
             ]
         }]
-    };
+        };
 
 
-    const data2 = {
-        labels: labels2,
-        datasets: [{
-            label: 'Temperatura Média',
-            backgroundColor: 'white',
-            borderColor: 'red',
-            borderWidth: 3,
-
-            data: [22, 24, 27, 23, 4],
-
-        }
-        ]
-    };
-
-    const data3 = {
-        labels: labels3,
-        title: 'Salve Jorge',
-        datasets: [{
-            label: 'Temperatura Média',
-            backgroundColor: '#4599FE',
-            borderColor: 'red',
-            borderWidth: 3,
-
-
-            data: [22, 24, 27],
-
-        }
-        ]
-    };
-
-
-
-    const config = { // grafico 1
+        const config = { // grafico 1
         type: 'pie',
         data: data,
         options: {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Distribuição por Cores',
+                    text: 'Perfil de Aprendizagem de Idiomas',
                     color: 'white',
                     font: {
                         size: 18
@@ -328,11 +240,42 @@ function obterDados() {
             }
         },
         plugins: [ChartDataLabels] // <- ativa o plugin
-    };
+        };
+
+        const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+    }
 
 
+    function plotarGraficoBarra(dataBarra) {
 
-    const config2 = { // GRAFICO 2
+        let pilar = [];
+        let Quantidade = [];
+
+        for (let i = 0; i < dataBarra.length; i++) {
+            pilar.push(dataBarra[i].pilar)
+            Quantidade.push(dataBarra[i].quantidade)
+            
+        }
+        
+        const labels2 = pilar;
+
+        const data2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'Escolha dos usuários',
+            backgroundColor: 'white',
+            borderColor: 'red',
+            borderWidth: 3,
+
+            data: Quantidade,
+
+        }]
+        };
+
+        const config2 = { // GRAFICO 2
         type: 'bar',
         data: data2,
         options: {
@@ -376,8 +319,46 @@ function obterDados() {
             }
         }
 
-    };
+        };
 
+        const myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+
+    }
+
+
+    function plotarGraficoBarra1(dataBarra1) {
+
+    let idioma = [];
+
+    let total_acertos = [];
+
+    for (let i = 0; i < dataBarra1.length; i++) {
+        idioma.push(dataBarra1[i].idioma)
+        total_acertos.push(dataBarra1[i].total_acertos)
+        
+    }
+
+
+    const labels3 = idioma;
+
+    const data3 = {
+        labels: labels3,
+        title: 'Salve Jorge',
+        datasets: [{
+            label: 'Quantidade de acertos',
+            backgroundColor: '#4599FE',
+            borderColor: 'red',
+            borderWidth: 3,
+
+
+            data: total_acertos,
+
+        }
+        ]
+    };
 
     const config3 = { // GRAFICO 3
         type: 'bar',
@@ -423,25 +404,33 @@ function obterDados() {
             }
         }
 
-    };
+        };
 
-
-
-
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-
-    const myChart2 = new Chart(
-        document.getElementById('myChart2'),
-        config2
-    );
-
-    const myChart3 = new Chart(
+        const myChart3 = new Chart(
         document.getElementById('myChart3'),
         config3
     );
+ 
+    }
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+
+    
+
+    
 
 
 

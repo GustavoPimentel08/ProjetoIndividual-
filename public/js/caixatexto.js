@@ -11,35 +11,36 @@ const box = document.getElementById("idiomaBox");
 
 function mostrarPalavraComAnimacao(palavra) {
   box.innerHTML = ""; // limpa a caixa
-  [...palavra].forEach((letra, i) => {
+
+  for (let i = 0; i < palavra.length; i++) { // contador para percorre a lista das palavras 
     const span = document.createElement("span");
-    span.textContent = letra;
+    span.textContent = palavra[i];
     span.classList.add("letra");
-    span.style.animationDelay = `${i * 0.05}s`; // efeito cascata
+    span.style.animationDelay = `${i * 0.05}s`; // aplica o efeito cascata
     box.appendChild(span);
-  });
+  }
 }
 
 function esconderPalavraAtual(callback) {
   const letras = document.querySelectorAll(".letra");
-  letras.forEach((span, i) => {
-    span.classList.add("saindo");
-    span.style.animationDelay = `${i * 0.03}s`;
-  });
+
+  for (let i = 0; i < letras.length; i++) { // contador para saida das letras
+    letras[i].classList.add("saindo");
+    letras[i].style.animationDelay = `${i * 0.03}s`;
+  }
 
   setTimeout(callback, letras.length * 30 + 400); // espera terminar animação
 }
 
-// Inicializa com a primeira palavra
-mostrarPalavraComAnimacao(idiomas[index]);
 
-setInterval(() => {
+mostrarPalavraComAnimacao(idiomas[index]); // Inicializa com a primeira palavra
+
+setInterval(() => { // para fazer uma repetição
   esconderPalavraAtual(() => {
     index = (index + 1) % idiomas.length;
     mostrarPalavraComAnimacao(idiomas[index]);
   });
-}, 2500);
-
+}, 2500); // tempo 
 
 
 

@@ -1,10 +1,9 @@
 var kpiModel = require("../models/kpiModel");
 
 function listarBarra(req, res) {
-    var idUsuario = req.params.idUsuario;
 
     console.log("2 - Cheguei no controller da barra, vamoo!");
-    kpiModel.listarBarra(idUsuario).then(
+    kpiModel.listarBarra().then(
         function (resultado) {
             console.log("2 - To na função do controller da barra");
             res.status(200).json(resultado);
@@ -18,10 +17,9 @@ function listarBarra(req, res) {
 }
 
 function listarBarra1(req, res) {
-    var idUsuario = req.params.idUsuario;
 
     console.log("1 - Cheguei no controller da barra1, vamoo!");
-    kpiModel.listarBarra1(idUsuario).then(
+    kpiModel.listarBarra1().then(
         function (resultado) {
             console.log("1 - To na função do controller da barra1");
             res.status(200).json(resultado);
@@ -34,18 +32,49 @@ function listarBarra1(req, res) {
     )
 }
 
-function listar(req, res) {
-    var idUsuario = req.params.idUsuario;
+function listarPizza(req, res) {
 
-    console.log("1 - Cheguei no controller do listar, vamoo!");
-    kpiModel.listar(idUsuario).then(
+    console.log("1 - Cheguei no controller da Pizza, vamoo!");
+    kpiModel.listarPizza().then(
         function (resultado) {
-            console.log("1 - To na função do controller do listar");
+            console.log("1 - To na função do controller da Pizza");
             res.status(200).json(resultado);
         }
     ).catch(
         function (erro) {
-            console.log("1 - Deu merda aqui no controller do listar: /n");
+            console.log("1 - Deu merda aqui no controller da Pizza: /n");
+            res.status(500).json({ erro: erro.sqlMessage || erro.message || erro });
+        }
+    )
+}
+
+function listarEstudo(req, res) {
+
+    console.log("1 - Cheguei no controller do listarEstudo, vamoo!");
+    kpiModel.listarEstudo().then(
+        function (resultado) {
+            console.log("1 - To na função do controller do listarEstudo");
+            res.status(200).json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log("1 - Deu merda aqui no controller do listarEstudo: /n");
+            res.status(500).json({ erro: erro.sqlMessage || erro.message || erro });
+        }
+    )
+}
+
+function listarIdioma(req, res) {
+
+    console.log("1 - Cheguei no controller do listarIdioma, vamoo!");
+    kpiModel.listarIdioma().then(
+        function (resultado) {
+            console.log("1 - To na função do controller do listarIdioma");
+            res.status(200).json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log("1 - Deu merda aqui no controller do listarIdioma: /n");
             res.status(500).json({ erro: erro.sqlMessage || erro.message || erro });
         }
     )
@@ -54,5 +83,7 @@ function listar(req, res) {
 module.exports = {
     listarBarra,
     listarBarra1,
-    listar
-}
+    listarPizza,
+    listarIdioma,
+    listarEstudo
+};

@@ -136,9 +136,15 @@
                     sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.AQUARIOS = JSON.stringify(json.aquarios);
 
-                    setTimeout(function () {
+                    if (sessionStorage.ID_USUARIO == '1') {
+                        setTimeout(function () {
+                        window.location = "./dashboard/dashboard.html";
+                    }, 2000); // espera 2 segundos
+                    } else {
+                        setTimeout(function () {
                         window.location = "./areademembros.html";
                     }, 2000); // espera 2 segundos
+                    }
                 });
 
             } else {

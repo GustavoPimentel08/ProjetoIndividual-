@@ -120,9 +120,7 @@ function teste() {
                             </div>
                             <div class="loc-1">
                                  <div class="loc90">
-                                    <p class="texto_fotos">${textos.locs[i]}</p> <br>
-                                    <p class="texto_fotos">${textos.locs[i]}</p> <br>
-                                    <p class="texto_fotos">${textos.locs[i]}</p>
+                                    <p class="texto_fotos">${textos.locs[i]}</p> 
                              </div>
                              </div>`;
                 section_1++

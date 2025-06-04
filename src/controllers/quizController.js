@@ -15,7 +15,7 @@
 
         // qtd_acertoFrances, qtd_acertoEspanhol, qtd_acertoIngles
 
-        quizModel.alocar(idUsuario, qtd_acertoFrances, qtd_acertoEspanhol, qtd_acertoIngles).then(function(resposta){
+        quizModel.alocar(idUsuario, qtd_acertoIngles, qtd_acertoEspanhol, qtd_acertoFrances).then(function(resposta){
             res.status(200).send("quiz criados com sucesso");
             
         }).catch(function(erro){
